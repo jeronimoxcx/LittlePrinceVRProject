@@ -25,11 +25,18 @@ public class EnemyGenerator : MonoBehaviour {
             // execute block of code here
             Vector3 GenPosition = new Vector3(Random.Range(-50, 50), Random.Range(10, 60), 100);
 
-            GameObject temp = pool.GetEnemy1_S();
+            int enemytype = Random.Range(0, 2);
+            GameObject temp;
+            if (enemytype == 0)
+                temp = pool.GetEnemy1_S();
+            else
+                temp = pool.GetEnemy1_N();
 
-            temp.transform.position = GenPosition;
-
-            temp.GetComponent<Rigidbody>().velocity = ((Player.transform.position - temp.transform.position).normalized) * EnemySpeed;
+            if (temp)
+            {
+                temp.transform.position = GenPosition;
+                temp.GetComponent<Rigidbody>().velocity = ((Player.transform.position - temp.transform.position).normalized) * EnemySpeed;
+            }
 
         }
 
