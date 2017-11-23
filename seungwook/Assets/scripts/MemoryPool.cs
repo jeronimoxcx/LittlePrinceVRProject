@@ -7,6 +7,8 @@ public class MemoryPool : MonoBehaviour {
     public GameObject Mono_S;
     public GameObject Enemy1_S;
     public GameObject Enemy1_N;
+    public GameObject M_Field_N;
+    public GameObject M_Field_S;
     public GameObject Bar_Mag;
     public int poolSize = 50;
     
@@ -14,6 +16,8 @@ public class MemoryPool : MonoBehaviour {
     GameObject[] Mono_S_Pool;
     GameObject[] Enemy1_S_Pool;
     GameObject[] Enemy1_N_Pool;
+    GameObject[] M_Field_N_Pool;
+    GameObject[] M_Field_S_Pool;
     GameObject[] Bar_Pool;
 
     // Use this for initialization
@@ -22,6 +26,9 @@ public class MemoryPool : MonoBehaviour {
         Mono_S_Pool = new GameObject[poolSize];
         Enemy1_S_Pool = new GameObject[poolSize];
         Enemy1_N_Pool = new GameObject[poolSize];
+        M_Field_N_Pool = new GameObject[poolSize];
+        M_Field_S_Pool = new GameObject[poolSize];
+
         Bar_Pool = new GameObject[3];
         for (int i = 0; i<poolSize; i++)
         {
@@ -29,10 +36,16 @@ public class MemoryPool : MonoBehaviour {
             Mono_N_Pool[i].SetActive(false);
             Mono_S_Pool[i] = (GameObject)Instantiate(Mono_S);
             Mono_S_Pool[i].SetActive(false);
+
             Enemy1_S_Pool[i] = (GameObject)Instantiate(Enemy1_S);
             Enemy1_S_Pool[i].SetActive(false);
             Enemy1_N_Pool[i] = (GameObject)Instantiate(Enemy1_N);
             Enemy1_N_Pool[i].SetActive(false);
+
+            M_Field_N_Pool[i] = (GameObject)Instantiate(M_Field_N);
+            M_Field_N_Pool[i].SetActive(false);
+            M_Field_S_Pool[i] = (GameObject)Instantiate(M_Field_S);
+            M_Field_S_Pool[i].SetActive(false);
         }
         for (int i = 0; i<3; i++)
         {
@@ -107,6 +120,32 @@ public class MemoryPool : MonoBehaviour {
             {
                 Bar_Pool[i].SetActive(true);
                 return Bar_Pool[i];
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetMField_N()
+    {
+        for (int i = 0; i < poolSize; i++)
+        {
+            if (!M_Field_N_Pool[i].activeSelf)
+            {
+                M_Field_N_Pool[i].SetActive(true);
+                return M_Field_N_Pool[i];
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetMField_S()
+    {
+        for (int i = 0; i < poolSize; i++)
+        {
+            if (!M_Field_S_Pool[i].activeSelf)
+            {
+                M_Field_S_Pool[i].SetActive(true);
+                return M_Field_S_Pool[i];
             }
         }
         return null;

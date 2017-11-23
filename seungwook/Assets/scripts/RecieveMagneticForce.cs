@@ -12,7 +12,13 @@ public class RecieveMagneticForce : MonoBehaviour {
 
     private float slowtime;
     private int slowtimer = 0;
-        
+
+    private float fasttime;
+    private int fasttimer = 0;
+
+    private float awaytime;
+    private int awaytimer = 0;
+
     private int followmode = 0;
     private GameObject followobj;
     
@@ -22,13 +28,15 @@ public class RecieveMagneticForce : MonoBehaviour {
     public GameObject GlowEffect;
     public int M_force;
     public GameObject text;
-    
-    
-	// Use this for initialization
-	void Start () {
+    public GameObject Player;
+
+
+    // Use this for initialization
+    void Start () {
         showtext = M_force.ToString();
         textMesh = text.GetComponent(typeof(TextMesh)) as TextMesh;
         textMesh.text = showtext;
+        Player = GameObject.Find("Player");
     }
 	
 	// Update is called once per frame
@@ -46,8 +54,18 @@ public class RecieveMagneticForce : MonoBehaviour {
         }
         else if(slowtimer == 1 && slowtime < Time.time)
         {
+            gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * 5.0F;
             slowtimer = 0;
-            gameObject.GetComponent<Rigidbody>().velocity *= 5.0F;
+        }
+        else if(fasttimer == 1 && fasttime < Time.time)
+        {
+            gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * 0.667F;
+            fasttimer = 0;
+        }
+        else if(awaytimer == 1 && awaytime <Time.time)
+        {
+            gameObject.GetComponent<Rigidbody>().velocity = ((Player.transform.position - gameObject.transform.position).normalized) * 20.0F;
+            awaytimer = 0;
         }
 
         if (glowtimer == 1 && glowtime < Time.time)
@@ -56,9 +74,14 @@ public class RecieveMagneticForce : MonoBehaviour {
             glowtimer = 0;
         }
 
+        var newRotation = Quaternion.LookRotation(transform.position - Player.transform.position).eulerAngles;
+        newRotation.x = 0;
+        newRotation.z = 0;
+        transform.rotation = Quaternion.Euler(newRotation);
+
+        //Vector3 player_target = (Player.transform.position - gameObject.transform.position);
+        //textMesh.transform.LookAt(Player.transform.position, Vector3.up);
         
-
-
     }
 
     void Follow(GameObject Attack)
@@ -69,7 +92,7 @@ public class RecieveMagneticForce : MonoBehaviour {
             disable_active = 1;
             followmode = 1;
             followobj = Attack;
-            //Debug.Log("Message Received");
+
             Glow();
             float starttime = Time.time;
         }
@@ -77,12 +100,16 @@ public class RecieveMagneticForce : MonoBehaviour {
 
     void Away(GameObject Attack)
     {
-        gameObject.GetComponent<Rigidbody>().velocity = (gameObject.transform.position - Attack.transform.position);
-        glowtimer = 1;
-        glowtime = Time.time + 3.0F;
-        
-        Glow();
+        if (followmode == 0)
+        {
+            awaytime = Time.time + 3.0F;
+            awaytimer = 1;
+            gameObject.GetComponent<Rigidbody>().velocity = (gameObject.transform.position - Attack.transform.position);
+            glowtimer = 1;
+            glowtime = Time.time + 3.0F;
 
+            Glow();
+        }
     }
 
     void disable_self()
@@ -107,9 +134,17 @@ public class RecieveMagneticForce : MonoBehaviour {
     
     void Slowdown()
     {
-        slowtime = Time.time + 5.0F;
+        slowtime = Time.time + 3.0F;
         slowtimer = 1;
-        gameObject.GetComponent<Rigidbody>().velocity *= 0.2F;
+        gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * 0.5F;
+        //Debug.Log("Message Received");
+    }
+
+    void Fastenup()
+    {
+        fasttime = Time.time + 3.0F;
+        fasttimer = 1;
+        gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * 1.5F;
     }
 
 }

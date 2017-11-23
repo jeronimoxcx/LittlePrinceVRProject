@@ -10,6 +10,7 @@ public class Bar_Magnet : MonoBehaviour {
     //public Transform cameraTransform;
 
     private Vector3 flydirection;
+    private Vector3 velocity;
     private int power = 10;
     private float disabletime;
     private int disable_active = 0;
@@ -19,6 +20,7 @@ public class Bar_Magnet : MonoBehaviour {
     // Use this for initialization
     void Start () {
         
+            
     }
 	
 	// Update is called once per frame
@@ -33,10 +35,13 @@ public class Bar_Magnet : MonoBehaviour {
         int i = 0;
         while(i < hitColliders.Length)
         {
-            if (hitColliders[i].tag == "N")
-                hitColliders[i].SendMessage("Follow", bar_S);
-            else if (hitColliders[i].tag == "S")
-                hitColliders[i].SendMessage("Follow", bar_N);
+            if (hitColliders[i].name.Contains("Enemy"))
+            {
+                if (hitColliders[i].tag == "N")
+                    hitColliders[i].SendMessage("Follow", bar_S);
+                else if (hitColliders[i].tag == "S")
+                    hitColliders[i].SendMessage("Follow", bar_N);
+            }
             i++;
         }
 
@@ -53,7 +58,7 @@ public class Bar_Magnet : MonoBehaviour {
         }
         else
         {
-            gameObject.GetComponent<Rigidbody>().velocity = flydirection * power;
+            transform.position += velocity * Time.deltaTime;
         }
 
     }
@@ -61,5 +66,6 @@ public class Bar_Magnet : MonoBehaviour {
     void fly (Vector3 direction)
     {
         flydirection = direction;
+        velocity = flydirection * power;
     }
 }

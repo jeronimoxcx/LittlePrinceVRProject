@@ -16,34 +16,26 @@ public class FireManager : MonoBehaviour {
 
 	void Update () {
         if (Input.GetButtonDown("Fire1"))
-        {
             firemonoN();
-            
-        }
-
+        
         if (Input.GetButtonDown("Fire2"))
-        {
             monoNLimit = 3;
-            
-        }
-
+        
         if (Input.GetKeyDown(KeyCode.Q))
-        {
             firemonoS();
-            
-        }
-
+        
         if (Input.GetKeyDown(KeyCode.E))
-        {
             monoSLimit = 3;
-            
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
+        
+        if (Input.GetButtonDown("Jump"))
             fireBar();
-        }
 
+        if (Input.GetKeyDown(KeyCode.Z))
+            fireMField_N();
+
+        if (Input.GetKeyDown(KeyCode.C))
+            fireMField_S();
+        
     }
 
     void firemonoN()
@@ -60,8 +52,6 @@ public class FireManager : MonoBehaviour {
                 cameraTransform.forward * power;
 
             monoNLimit -= 1;
-
-            //Debug.Log(monoNLimit);
         }
     }
 
@@ -78,8 +68,6 @@ public class FireManager : MonoBehaviour {
                 cameraTransform.forward * power;
 
             monoSLimit -= 1;
-
-            //Debug.Log(monoSLimit);
         }
     }
 
@@ -90,13 +78,30 @@ public class FireManager : MonoBehaviour {
             GameObject temp = pool.GetBar();
 
             temp.transform.position = firePosition_Bar.position;
-            
-            //temp.GetComponent<Rigidbody>().velocity = cameraTransform.forward * power;
 
             temp.SendMessage("fly", cameraTransform.forward);
 
             barLimit -= 1;
         }
+    }
+
+    void fireMField_N()
+    {
+        GameObject temp = pool.GetMField_N();
+
+        temp.transform.position = firePosition_Bar.position;
+
+        temp.SendMessage("fly", cameraTransform.forward);
+        
+    }
+
+    void fireMField_S()
+    {
+        GameObject temp = pool.GetMField_S();
+
+        temp.transform.position = firePosition_Bar.position;
+
+        temp.SendMessage("fly", cameraTransform.forward);
     }
 
 

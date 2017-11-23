@@ -5,7 +5,8 @@ using UnityEngine;
 public class ApplyMagneticForce : MonoBehaviour {
 
     public int M_force;
-    
+
+    private int M_radius = 15;
     private int magAble = 1;
     private float disabletime;
     private int disable_active = 0;
@@ -24,7 +25,7 @@ public class ApplyMagneticForce : MonoBehaviour {
         {
             if (magAble == 1)
             {
-                ApplyMagneticField(transform.position, M_force);
+                ApplyMagneticField(transform.position, M_radius);
                 magAble = 0;
             }
         }
@@ -48,19 +49,17 @@ public class ApplyMagneticForce : MonoBehaviour {
         while (i < hitColliders.Length)
         {
             //Debug.Log(hitColliders[i].tag);
-            if (hitColliders[i].tag == "N" || hitColliders[i].tag == "S")
+            //if (hitColliders[i].tag == "N" || hitColliders[i].tag == "S")
+            if (hitColliders[i].name.Contains("Enemy"))
             {
-                mForce -= hitColliders[i].GetComponent<RecieveMagneticForce>().M_force;
-                if (mForce >= 0)
+                if (hitColliders[i].tag != gameObject.tag)
                 {
-                    if (hitColliders[i].tag != gameObject.tag)
+                    mForce -= hitColliders[i].GetComponent<RecieveMagneticForce>().M_force;
+                    if (mForce>=0)
                         hitColliders[i].SendMessage("Follow", gameObject);
-
-                    if (hitColliders[i].tag == gameObject.tag)
-                        hitColliders[i].SendMessage("Away", gameObject);
                 }
-                else
-                    break;
+                if (hitColliders[i].tag == gameObject.tag)
+                    hitColliders[i].SendMessage("Away", gameObject);
             }
             i++;
         }

@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GlowEffect: {fileID: 1424700622926972}
-  M_force: 1
+  M_force: 2
   text: {fileID: 1232757928635114}
 --- !u!122 &122720430681290700
 Halo:
