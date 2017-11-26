@@ -34,12 +34,18 @@ public class EnemyCreater : MonoBehaviour {
         //set position
         temp.transform.position = FirePositionTransform.position;
 
-        //set velocity
-        Vector3 initialVelocity = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0);
-        initialVelocity.Normalize();
-        initialVelocity *= power;
+        //seung-wook
+        temp.GetComponent<Rigidbody>().velocity = ((GameObject.Find("Single_Rose").transform.position - temp.transform.position).normalized) * power;
 
-        temp.GetComponent<Rigidbody>().velocity = initialVelocity;
+        //sun-young (parabolic motion)
+        //set velocity
+        /*
+                Vector3 initialVelocity = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0);
+                initialVelocity.Normalize();
+                initialVelocity *= power;
+
+                temp.GetComponent<Rigidbody>().velocity = initialVelocity;
+          */
     }
 }
 

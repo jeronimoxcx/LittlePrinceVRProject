@@ -6,11 +6,8 @@ public class VelocityCalculator : MonoBehaviour {
 
 	Transform targetTransform;
 
-	public float speed;
-    public float lerpValue;
-
-    private Rigidbody rb;
-    private float thrust = 10.0f;
+	public float speed = 3.0f;
+    public float lerpValue = 0.04f;
 
 	Vector3 curPosition;
 	Vector3 curDir;
@@ -19,22 +16,9 @@ public class VelocityCalculator : MonoBehaviour {
 
 	void Start () {
 		targetTransform = GameObject.Find ("Single_Rose").transform;
-        rb = GetComponent<Rigidbody>();
 	}
 
 	void Update () {
-
-        /*
-        //get the current position
-        curPosition = gameObject.transform.position;
-
-        //get the toward direction
-        towardDir = targetTransform.position - curPosition;
-        towardDir.Normalize();
-
-        rb.AddForce(towardDir* thrust);
-        */
-
         
         //get the current position
         curPosition = gameObject.transform.position;
