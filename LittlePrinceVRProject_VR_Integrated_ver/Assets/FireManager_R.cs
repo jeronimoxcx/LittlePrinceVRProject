@@ -17,9 +17,10 @@ public class FireManager_R : MonoBehaviour
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
 
 
-    private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
-    private SteamVR_TrackedObject trackedObj;
+    public SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+    public SteamVR_TrackedObject trackedObj;
 
+    public bool signal;
 
     // Use this for initialization
     void Start()
@@ -30,6 +31,7 @@ public class FireManager_R : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        signal = controller.GetPressDown(triggerButton);
         if (controller == null)
         {
             Debug.Log("Controller not initialized");
@@ -53,13 +55,13 @@ public class FireManager_R : MonoBehaviour
             {
                 up = true;
                 firemonoN();
-                Debug.Log("Dpad Up");
+                
             }
             else if (controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y < -0.5 && !down)
             {
                 down = true;
                 fireMField_N();
-                Debug.Log("Dpad Down");
+                
             }
 
 

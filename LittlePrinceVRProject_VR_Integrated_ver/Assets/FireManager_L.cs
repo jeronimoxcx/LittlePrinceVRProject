@@ -12,12 +12,15 @@ public class FireManager_L : MonoBehaviour
     private int barLimit = 3;
     private bool up = false;
     private bool down = false;
+    
 
     private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
 
-    private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
-    private SteamVR_TrackedObject trackedObj;
+    public SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+    public SteamVR_TrackedObject trackedObj;
+
+    public bool signal;
 
     // Use this for initialization
     void Start()
@@ -28,6 +31,7 @@ public class FireManager_L : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        signal = controller.GetPressDown(triggerButton);
         if (controller == null)
         {
             Debug.Log("Controller not initialized");

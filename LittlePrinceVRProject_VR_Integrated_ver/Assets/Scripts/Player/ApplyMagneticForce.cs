@@ -12,16 +12,24 @@ public class ApplyMagneticForce : MonoBehaviour {
     private int disable_active = 0;
     private Collider[] hitColliders;
 
+
+    public GameObject controllerRight;
+    public GameObject controllerLeft;
+    public bool signal_R;
+    public bool signal_L;
     // Use this for initialization
     void Start()
     {
-        
+        controllerRight = GameObject.Find("Controller (right)");
+        controllerLeft = GameObject.Find("Controller (left)");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.E) && gameObject.tag=="S") || (Input.GetButtonDown("Fire2") && gameObject.tag == "N"))
+        signal_R = controllerRight.GetComponent<FireManager_R>().signal;
+        signal_L = controllerLeft.GetComponent<FireManager_L>().signal;
+        if ((signal_L && gameObject.tag=="S") || (signal_R && gameObject.tag == "N"))
         {
             if (magAble == 1)
             {
@@ -57,7 +65,6 @@ public class ApplyMagneticForce : MonoBehaviour {
                     mForce -= hitColliders[i].GetComponent<RecieveMagneticForce>().M_force;
                     if (mForce >= 0)
                     {
-                        Debug.Log( "here here man333");
                         hitColliders[i].SendMessage("Follow", gameObject);
                     }
                 }
