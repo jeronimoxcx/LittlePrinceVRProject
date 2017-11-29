@@ -6,7 +6,7 @@ public class Bar_Magnet : MonoBehaviour {
 
     public GameObject bar_N;
     public GameObject bar_S;
-    public int M_force = 10;
+    public int M_force = 5;
     //public Transform cameraTransform;
 
     private Vector3 flydirection;
@@ -32,6 +32,8 @@ public class Bar_Magnet : MonoBehaviour {
         }
 
         hitColliders = Physics.OverlapSphere(transform.position, M_force);
+
+
         int i = 0;
         while(i < hitColliders.Length)
         {
@@ -39,6 +41,7 @@ public class Bar_Magnet : MonoBehaviour {
             {
                 if (hitColliders[i].tag == "N")
                     hitColliders[i].SendMessage("Follow", bar_S);
+
                 else if (hitColliders[i].tag == "S")
                     hitColliders[i].SendMessage("Follow", bar_N);
             }

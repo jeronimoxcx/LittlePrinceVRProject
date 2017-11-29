@@ -32,7 +32,8 @@ public class M_field : MonoBehaviour {
         if (col.name.Contains("Enemy"))
         {
             //col.SendMessage("Slowdown");
-            if (col.tag != gameObject.tag)
+            //if (col.tag != gameObject.tag) 승욱쓰꺼임
+            if (col.tag == gameObject.tag)
             {
                 col.SendMessage("Slowdown");
             }

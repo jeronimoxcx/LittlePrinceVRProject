@@ -34,8 +34,11 @@ public class RecieveMagneticForce : MonoBehaviour {
     // Use this for initialization
     void Start () {
         showtext = M_force.ToString();
+
+        Debug.Log(gameObject.name+":textMesh is about to initialize");
         textMesh = text.GetComponent(typeof(TextMesh)) as TextMesh;
         textMesh.text = showtext;
+        
         Player = GameObject.Find("Player");
     }
 	
@@ -123,6 +126,9 @@ public class RecieveMagneticForce : MonoBehaviour {
     void Glow()
     {
         GlowEffect.SetActive(true);
+
+        if(textMesh == null)
+
         textMesh.gameObject.SetActive(false);
     }
 

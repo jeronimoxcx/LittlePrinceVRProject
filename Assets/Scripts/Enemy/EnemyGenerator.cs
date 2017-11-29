@@ -25,7 +25,7 @@ public class EnemyGenerator: MonoBehaviour {
         //Level1
         if( levelTimer < level1EndTime )
         {
-            levelText.text = ("Level 1");
+            //levelText.text = ("Level 1");
             if (shootingTimer >= shootingTimeInterval)
             {
                 shootingTimer = 0;
@@ -42,7 +42,7 @@ public class EnemyGenerator: MonoBehaviour {
         else if (levelTimer < level2EndTime)
         {
             Debug.Log("start level2");
-            levelText.text = ("Level 2");
+            //levelText.text = ("Level 2");
             if (shootingTimer >= shootingTimeInterval)
             {
                 shootingTimer = 0;
@@ -58,7 +58,7 @@ public class EnemyGenerator: MonoBehaviour {
         //Level3
         else
         {
-            levelText.text = ("Level 3");
+            //levelText.text = ("Level 3");
         }
 
 	}
