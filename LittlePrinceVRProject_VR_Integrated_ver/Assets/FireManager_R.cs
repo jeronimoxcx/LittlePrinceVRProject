@@ -38,7 +38,7 @@ public class FireManager_R : MonoBehaviour
             return;
         }
 
-
+        
         if (controller.GetPressDown(triggerButton))
         {
             monoNLimit = 3;
@@ -55,13 +55,13 @@ public class FireManager_R : MonoBehaviour
             {
                 up = true;
                 firemonoN();
-                
+                Debug.Log("up");
             }
             else if (controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y < -0.5 && !down)
             {
                 down = true;
                 fireMField_N();
-                
+                Debug.Log("down");
             }
 
 

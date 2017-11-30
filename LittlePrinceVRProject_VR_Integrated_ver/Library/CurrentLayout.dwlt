@@ -68,10 +68,10 @@ MonoBehaviour:
     y: 660
     width: 1563
     height: 271
-  m_MinSize: {x: 334, y: 271}
-  m_MaxSize: {x: 14004, y: 10021}
+  m_MinSize: {x: 336, y: 271}
+  m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
-  controlID: 44
+  controlID: 39
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -90,8 +90,8 @@ MonoBehaviour:
     y: 0
     width: 442
     height: 271
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -117,10 +117,10 @@ MonoBehaviour:
     y: 30
     width: 1904
     height: 931
-  m_MinSize: {x: 681, y: 492}
+  m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 18006, y: 14042}
   vertical: 0
-  controlID: 149
+  controlID: 11
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,8 +139,8 @@ MonoBehaviour:
     y: 0
     width: 341
     height: 931
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -257,9 +257,9 @@ MonoBehaviour:
     width: 1563
     height: 931
   m_MinSize: {x: 404, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MaxSize: {x: 14006, y: 14042}
   vertical: 1
-  controlID: 150
+  controlID: 12
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 151
+  controlID: 13
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -671,19 +671,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs/Enemy
+    - Assets/Prefabs/Player
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Enemy
+  - Assets/Prefabs/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\sunnie\Documents\2017courses\Game Programming\LittlePrinceVRProject\LittlePrinceVRProject\LittlePrinceVRProject_VR_Integrated_ver
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 69}
-    m_SelectedIDs: b2280000
-    m_LastClickedID: 10418
-    m_ExpandedIDs: 0000000058260000d42600008a270000bc280000402a00004c2b0000202c0000c82c0000d82c00003438000036380000383800003a3800003c3800003e38000040380000423800004438000046380000483800004a3800004c3800004e38000050380000523800005438000056380000583800005a3800005c3800005e38000060380000623800006438000066380000683800006a3800006c3800006e380000703800007238000000ca9a3bffffff7f
+    m_SelectedIDs: 722b0000
+    m_LastClickedID: 11122
+    m_ExpandedIDs: 000000005c260000d82600008e270000c0280000442a0000522b0000262c0000ce2c0000de2c00006a3800006c3800006e38000070380000723800007438000076380000783800007a3800007c3800007e38000080380000823800008438000086380000883800008a3800008c3800008e38000090380000923800009438000096380000983800009a3800009c3800009e380000a0380000a2380000a4380000a6380000a838000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -711,7 +711,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 02290000
     m_LastClickedID: 10498
-    m_ExpandedIDs: 0000000058260000d42600008a270000bc280000402a00004c2b0000202c0000c82c0000d82c00003438000036380000383800003a3800003c3800003e38000040380000423800004438000046380000483800004a3800004c3800004e38000050380000523800005438000056380000583800005a3800005c3800005e38000060380000623800006438000066380000683800006a3800006c3800006e3800007038000072380000
+    m_ExpandedIDs: 000000005c260000d82600008e270000c0280000442a0000522b0000262c0000ce2c0000de2c00006a3800006c3800006e38000070380000723800007438000076380000783800007a3800007c3800007e38000080380000823800008438000086380000883800008a3800008c3800008e38000090380000923800009438000096380000983800009a3800009c3800009e380000a0380000a2380000a4380000a6380000a8380000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -827,23 +827,23 @@ MonoBehaviour:
     height: 639
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 36070000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 5210f9ff56d2f9ffc6e8ffffc8e8fffff8f1ffffe6fbffff000000006e30000056310000fa32000018330000703300005a350000
+    m_SelectedIDs: d0e8ffff
+    m_LastClickedID: -5936
+    m_ExpandedIDs: aee8ffffcee8ffffd0e8ffffe6fbffff000000004033000098330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Single_Rose
-      m_OriginalName: Single_Rose
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 13050
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 7}
     m_SearchString: 
@@ -911,11 +911,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.16665871, y: 0.5304188, z: -0.107243724, w: -0.8242639}
     speed: 2
-    m_Value: {x: -0.16665609, y: 0.53041047, z: -0.10724204, w: -0.8242509}
+    m_Value: {x: -0.16665873, y: 0.5304189, z: -0.107243724, w: -0.8242639}
   m_Size:
-    m_Target: 2.717013
+    m_Target: 6.552658
     speed: 2
-    m_Value: 2.717013
+    m_Value: 6.552658
   m_Ortho:
     m_Target: 1
     speed: 2

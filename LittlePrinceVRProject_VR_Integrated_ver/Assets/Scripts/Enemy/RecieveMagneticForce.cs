@@ -37,8 +37,8 @@ public class RecieveMagneticForce : MonoBehaviour {
         textMesh = text.GetComponent(typeof(TextMesh)) as TextMesh;
         textMesh.text = showtext;
         Player = GameObject.Find("TrackThis");
-        //Player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(Player.name+"here here man");
+        //Player = GameObject.Find("Player");
+        Debug.Log(Player.name+" successfully tracked emptyobject");
         
     }
 
