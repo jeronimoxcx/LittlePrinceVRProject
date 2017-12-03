@@ -1,13 +1,20 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/EnemyCreater.cs">
+﻿<Properties StartupConfiguration="{F5BB2D82-5A12-B5A7-F55D-BAC2F8209B52}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Weapons/ApplyMagneticForce.cs">
     <Files>
-      <File FileName="Assets/Scripts/Enemy/EnemyCreater.cs" Line="29" Column="3" />
-      <File FileName="Assets/Scripts/Enemy/VelocityCalculator.cs" Line="46" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/PulledToRose.cs" Line="32" Column="13" />
+      <File FileName="../../../Desktop/LittlePrinceVRProject-Seungwook (1)/Assets/scripts/z_ReceiveMagneticForce.cs" Line="32" Column="134" />
+      <File FileName="../../../Desktop/LittlePrinceVRProject-Seungwook (1)/Assets/scripts/z_ApplyMagneticForce.cs" Line="32" Column="27" />
+      <File FileName="Assets/Scripts/Manager/EnemyGenerator.cs" Line="27" Column="5" />
+      <File FileName="Assets/Scripts/Enemy/ReceiveForce.cs" Line="29" Column="53" />
+      <File FileName="Assets/Scripts/Weapons/ApplyMagneticForce.cs" Line="15" Column="64" />
+      <File FileName="Assets/Scripts/Manager/FireManager.cs" Line="13" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.LittlePrinceProject PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
