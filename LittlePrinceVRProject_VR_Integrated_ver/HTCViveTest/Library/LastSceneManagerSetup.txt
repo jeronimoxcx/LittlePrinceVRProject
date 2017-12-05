@@ -1,4 +1,0 @@
-sceneSetups:
-- path: C:/Users/sunnie/Desktop/LittlePrinceVRProject_VR_Integrated_ver/Assets/Ground.unity
-  isLoaded: 1
-  isActive: 1
