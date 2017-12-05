@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyGenerator: MonoBehaviour {
 
-    //About Instantiating enemies
-
     Param param;
 
     public EnemyPool pool;
@@ -30,7 +28,7 @@ public class EnemyGenerator: MonoBehaviour {
         if (shootingTimer >= shootingTimeInterval)
         {
             shootingTimer = 0;
-            shootingTimeInterval = setshootingTimeIntervalLevel1();
+            shootingTimeInterval = Random.Range(param.shootingTimeItvRangeMin, param.shootingTimeItvRangeMax);
 
             Shoot();
 
@@ -89,26 +87,13 @@ public class EnemyGenerator: MonoBehaviour {
         //set position
         temp.transform.position = FirePositionTransform.position;
 
-        //seung-wook
-        //temp.GetComponent<Rigidbody>().velocity = ((GameObject.Find("Rose").transform.position - temp.transform.position).normalized) * power;
-
         //sun-young (parabolic motion)
-        Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(0.0f, 5.0f), 0);
+        Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-1.0f, 5.0f), 0);
         initialVelocity.Normalize();
         initialVelocity *= param.enemyShootingPower;
 
         temp.GetComponent<Rigidbody>().velocity = initialVelocity;
           
-    }
-
-    private float setshootingTimeIntervalLevel1()
-    {
-        return Random.Range(1.0f, 2.5f);
-    }
-
-    private float setshootingTimeIntervalLevel2()
-    {
-        return Random.Range(0.5f, 1.0f);
     }
 
 }

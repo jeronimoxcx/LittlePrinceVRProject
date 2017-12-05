@@ -11,9 +11,9 @@ public class FireManager : MonoBehaviour
     public Transform firePosition_Bar;
     public GameObject BarMagnet;
     private float power = 10.0f;
-    private int monoNLimit = 3;
-    private int monoSLimit = 3;
-    private int barLimit = 3;
+    private int monoNLimit = 100;
+    private int monoSLimit = 100;
+    private int barLimit = 100;
 
     private Vector3 monoposition;
 
