@@ -13,6 +13,8 @@ public class FireManager_L : MonoBehaviour
     private bool up = false;
     private bool down = false;
 
+   
+
     private Vector3 monoposition;
 
     private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;

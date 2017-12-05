@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0b0ba2ad3725fa247b7bb328eb9b5e68
+timeCreated: 1512472888
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: YDYGO100
+  fontNames:
+  - YDYGO100
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 66a2143b11f43ca479e08e0b94f16923, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
