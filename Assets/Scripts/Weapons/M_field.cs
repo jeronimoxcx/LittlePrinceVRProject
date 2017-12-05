@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class M_field : MonoBehaviour {
 
+    private Param param;
+
     private Vector3 flydirection;
     private Vector3 velocity;
-    private int power = 10;
 
     private int startflying = 0;
     private float flytime;
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void OnEnable () {
+        param = GameObject.Find("Param").GetComponent<Param>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,8 +48,8 @@ public class M_field : MonoBehaviour {
     void fly(Vector3 direction)
     {
         flydirection = direction;
-        velocity = flydirection * power;
+        velocity = flydirection * param.fieldShootingPower;
         startflying = 1;
-        flytime = Time.time + 10.0F;
+        flytime = Time.time + 7.5f;
     }
 }

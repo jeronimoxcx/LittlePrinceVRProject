@@ -6,31 +6,48 @@ public class PulledToRose : MonoBehaviour {
 
     Param param;
     Vector3 rose;
+    Vector3 modirose;
     Rigidbody rb;
 
 
-    void Start()
+    void OnEnable()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
         rose = GameObject.Find("Rose").transform.position;
-        rose.z += 2.0f;
+        rose.z += 1;
+        modirose = rose;
+        modirose.z += 2;
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
     {   
         Vector3 r = rose - gameObject.transform.position;
+        Vector3 modir = modirose - gameObject.transform.position;
+        Vector3 force;
 
         if (gameObject.transform.position.z > 20)
         {
-            rb.AddForce(param.RF_PullToRoseC * r.normalized);
+            force = param.RF_PullToRoseC * modir.normalized;
+            rb.AddForce(force);
+            //Debug.Log("r:" + r.magnitude);
+            //Debug.Log("Force:" + force.magnitude);
         }
-        else if (r.magnitude > 3)
+        else if (r.magnitude > 8)
         {
-            rb.AddForce((param.RF_PullToRoseC + Mathf.Pow(param.RF_PullToRoseC, 4) / Mathf.Pow(r.magnitude, 2)) * r.normalized);
-        }else {
-            
-            rb.AddForce((param.RF_PullToRoseC + Mathf.Pow(param.RF_PullToRoseC, 2) / Mathf.Pow(r.magnitude, 2)) * r.normalized);
+            force = (param.RF_PullToRoseC + Mathf.Pow(param.RF_PullToRoseC, 4) / Mathf.Pow(modir.magnitude, 2)) * modir.normalized;
+            rb.AddForce(force);
+            //Debug.Log("r:" + r.magnitude);
+            //Debug.Log("Force:" + force.magnitude);
+
+        }
+        else {
+            force = Mathf.Pow(param.RF_PullToRoseC, 3) * r.normalized;
+            rb.AddForce(force);
+            //Debug.Log("r:" + r.magnitude);
+            //Debug.Log("Force:" + force.magnitude);
+            //rb.AddForce(param.RF_PullToRoseC / Mathf.Pow(r.magnitude, 2) * r);
+            //rb.AddForce((param.RF_PullToRoseC + Mathf.Pow(param.RF_PullToRoseC, 2) / Mathf.Pow(r.magnitude, 2)) * r.normalized);
         }
         //rb.AddForce( param.pullToRoseC * r /Mathf.Pow(r.magnitude, 2) );
         //Debug.Log("to rose: "+ (param.pullToRoseC * r / Mathf.Pow(r.magnitude, 2)));

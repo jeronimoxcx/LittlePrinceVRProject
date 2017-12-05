@@ -6,7 +6,7 @@ public class Rose : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {   
-        Debug.Log("Hit Rose");
+        //Debug.Log("Hit Rose");
         collision.gameObject.SetActive(false);
     }
 }

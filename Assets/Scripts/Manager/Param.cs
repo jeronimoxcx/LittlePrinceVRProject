@@ -6,11 +6,19 @@ public class Param : MonoBehaviour {
 
     /* Force constants */
     public float RF_PullToRoseC = 1.0f; //like gravity constant
+
     public float MF_CoulombForceC = 10.0f;
 
     /* Monopole */
     public float MF_ChargeMono = 10.0f; //magnetic charge (1~10)
     public float MF_FindRange = 50.0f; //range in which magnetic force can reach 
+
+    /* Magnetic bar */
+    public float MF_ChargeBar = 10.0f;
+    public float barShootingPower = 10.0f;
+
+    /* M_field */
+    public float fieldShootingPower = 10.0f;
 
     /* Enemy */
     public float MF_ChargeEnemy = 10.0f; //magnetic charge (1~10)

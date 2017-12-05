@@ -10,7 +10,7 @@ public class ApplyMagneticForce : MonoBehaviour {
     private bool isExerting = false;
     private Collider[] hitColliders;
 
-    void Start()
+    void OnEnable()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
     }

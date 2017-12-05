@@ -22,22 +22,24 @@ public class EnemyGenerator: MonoBehaviour {
     void Start()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
-
     }
 
-    void Update () {
+    void Update()
+    {
 
-            if (shootingTimer >= shootingTimeInterval)
-            {
-                shootingTimer = 0;
-                shootingTimeInterval = setshootingTimeIntervalLevel1();
+        if (shootingTimer >= shootingTimeInterval)
+        {
+            shootingTimer = 0;
+            shootingTimeInterval = setshootingTimeIntervalLevel1();
 
-                Shoot();
-            }
-            else
-                shootingTimer += Time.deltaTime;
+            Shoot();
 
-         //   levelTimer += Time.deltaTime;
+        }
+        else
+            shootingTimer += Time.deltaTime;
+
+
+        //   levelTimer += Time.deltaTime;
 
         ////Level1
         //if( levelTimer < level1EndTime )
@@ -78,7 +80,7 @@ public class EnemyGenerator: MonoBehaviour {
         //    //levelText.text = ("Level 3");
         //}
 
-	}
+    }
 
     private void Shoot()
     {
