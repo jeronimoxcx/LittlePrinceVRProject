@@ -13,13 +13,15 @@ public class ApplyMagneticForce : MonoBehaviour {
     void OnEnable()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
-    }
+        magAble = 1; 
+        isExerting = false;
+}
 
     void Update()
     {
-        ExertMagneticForce();
-        //if (isExerting)
         //ExertMagneticForce();
+        if (isExerting)
+            ExertMagneticForce();
     }
 
     void ApplyMagneticField(Vector3 center)
