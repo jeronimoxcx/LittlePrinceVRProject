@@ -40,13 +40,12 @@ public class ReceiveForce : MonoBehaviour {
         }
         else if (r.magnitude > 8)
         {
-            force = (param.RF_PullToRoseC + Mathf.Pow(param.RF_PullToRoseC, 4) / Mathf.Pow(modir.magnitude, 2)) * modir.normalized;
+            force = (param.RF_PullToRoseC + Mathf.Pow(param.RF_PullToRoseC, 3) / Mathf.Pow(modir.magnitude, 1)) * modir.normalized;
             rb.AddForce(force);
         }
         else
         {
-            force = Mathf.Pow(param.RF_PullToRoseC, 3) * r.normalized;
-            rb.AddForce(force);
+            rb.velocity = Mathf.Pow(param.RF_PullToRoseC,1.5f) * r.normalized;
         }
     }
 
@@ -60,17 +59,16 @@ public class ReceiveForce : MonoBehaviour {
     public void Follow(float[] parameters)
     {
         isPulledToRose = false;
-
         Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
         Vector3 r = target - gameObject.transform.position;
 
         //Coulomb force
         if (r.magnitude > param.MF_StopForcingRange)
         {
-            rb.AddForce(param.MF_CoulombForceC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+            rb.AddForce(param.MF_CoulombForceFollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
         }
         //When two magnets are very close: attach 
-        else rb.velocity = 10 * r;
+        else rb.velocity = 10 * r.normalized;
     }
 
     public void Away(float[] parameters)
@@ -78,7 +76,7 @@ public class ReceiveForce : MonoBehaviour {
         Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
         Vector3 r = gameObject.transform.position - target;
 
-        rb.AddForce(param.MF_CoulombForceC * param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3));
+        rb.AddForce(param.MF_CoulombForceAwayC * param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3));
     }
 
     /* For the flat magnetic field */

@@ -19,9 +19,9 @@ public class ApplyMagneticForce : MonoBehaviour {
 
     void Update()
     {
-        //ExertMagneticForce();
-        if (isExerting)
-            ExertMagneticForce();
+        ExertMagneticForce();
+        //if (isExerting)
+        //    ExertMagneticForce();
     }
 
     void ApplyMagneticField(Vector3 center)

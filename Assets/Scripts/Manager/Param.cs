@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class Param : MonoBehaviour {
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    /* About stage and level */
+    //Start
+    public float LV_StartTime = 2.0f;
+    //Level 1,2,3
+    public float LV_showTextTime = 2.0f;
+    public float LV_playTime = 3.0f;
+
     /* Force constants */
     public float RF_PullToRoseC = 1.0f; //like gravity constant
 
-    public float MF_CoulombForceC = 10.0f;
+    public float MF_CoulombForceFollowC = 10.0f;
+    public float MF_CoulombForceAwayC = 5.0f;
 
     /* Monopole */
     public float MF_ChargeMono = 10.0f; //magnetic charge (1~10)
@@ -28,7 +41,7 @@ public class Param : MonoBehaviour {
     /* Enemy Generator */
     public float enemyShootingPower = 10.0f;
 
-    public float level1EndTime = 10.0f; //end time
-    public float level2EndTime = 20.0f; //end time
-    public float levelTimer = 0.0f;
+    public float shootingTimeItvMin = 0.5f;
+    public float shootingTimeItvMax = 1.5f;
+
 }
