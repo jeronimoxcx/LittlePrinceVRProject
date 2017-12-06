@@ -15,6 +15,11 @@ public class Param : MonoBehaviour {
     //Level 1,2,3
     public float LV_showTextTime = 2.0f;
     public float LV_playTime = 3.0f;
+    //Level3
+    public float LV3_waitInPoseTimeMin = 1.0f;
+    public float LV3_waitInPoseTimeMax = 3.0f;
+    public int LV3_teleportTotNum = 10;
+
 
     /* Force constants */
     public float RF_PullToRoseC = 1.0f; //like gravity constant

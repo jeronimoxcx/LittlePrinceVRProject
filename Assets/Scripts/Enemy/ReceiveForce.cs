@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class ReceiveForce : MonoBehaviour {
@@ -12,7 +11,6 @@ public class ReceiveForce : MonoBehaviour {
     private Vector3 modirose;
     private bool isPulledToRose;
 
-
     void OnEnable()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
@@ -21,7 +19,6 @@ public class ReceiveForce : MonoBehaviour {
         modirose = rose;
         modirose.z += 2;
         rb = gameObject.GetComponent<Rigidbody>();
-        
     }
 
     void Update()
@@ -64,10 +61,6 @@ public class ReceiveForce : MonoBehaviour {
         isPulledToRose = false;
         Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
         Vector3 r = target - gameObject.transform.position;
-
-
-        
-
 
         //Coulomb force
         if (r.magnitude > param.MF_StopForcingRange)

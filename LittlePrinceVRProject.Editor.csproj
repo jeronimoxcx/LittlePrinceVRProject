@@ -208,6 +208,8 @@
     <None Include="Assets\MarkLight\Views\UI\Window.xml" />
     <None Include="Assets\MarkLight\Views\View.xml" />
     <None Include="Assets\MarkLight\Views\ViewAnimation.xml" />
+    <None Include="Assets\OutlineEffect\Resources\OutlineBufferShader.shader" />
+    <None Include="Assets\OutlineEffect\Resources\OutlineShader.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\SeeThru.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\Silhouette.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Hints\Shaders\ControllerButtonHints.shader" />

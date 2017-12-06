@@ -25,7 +25,7 @@ public class ApplyMagneticForce : MonoBehaviour {
         isExerting = false;
 
 
-        BarGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
+        //BarGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
         inGage = false;
     }
 
