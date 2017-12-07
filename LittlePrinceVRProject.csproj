@@ -16,7 +16,7 @@
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
-    <UnityVersion>2017.1.1f1</UnityVersion>
+    <UnityVersion>5.6.3p1</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_1;UNITY_2017_1;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_3;UNITY_5_6;UNITY_5;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_1;UNITY_2017_1;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_3;UNITY_5_6;UNITY_5;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -49,9 +49,6 @@
     <Reference Include="UnityScript.Lang" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEditor">
-      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
@@ -67,14 +64,17 @@
     <Reference Include="nunit.framework">
       <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Timeline">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -102,8 +102,8 @@
     <Compile Include="Assets\MarkLight\Examples\Source\UI\ViewSwitcherExample.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\ActionData.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\AdjustToText.cs" />
-    <Compile Include="Assets\MarkLight\Source\Plugins\Animation\EasingFunctions.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Animation\EasingFunctionType.cs" />
+    <Compile Include="Assets\MarkLight\Source\Plugins\Animation\EasingFunctions.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Animation\ValueInterpolator.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Animation\ValueInterpolators\BoolValueInterpolator.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Animation\ValueInterpolators\ColorValueInterpolator.cs" />
@@ -159,8 +159,8 @@
     <Compile Include="Assets\MarkLight\Source\Plugins\ThemeElementData.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\TraversalAlgorithm.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\TypeHelper.cs" />
-    <Compile Include="Assets\MarkLight\Source\Plugins\UnityAsset.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Unity-WinRT.cs" />
+    <Compile Include="Assets\MarkLight\Source\Plugins\UnityAsset.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Utils.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\ValueConverter.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\ValueConverterContext.cs" />
@@ -199,6 +199,7 @@
     <Compile Include="Assets\MarkLight\Source\Plugins\ViewNameAlias.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\ViewPool.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\ViewPresenter.cs" />
+    <Compile Include="Assets\MarkLight\Source\Plugins\ViewTypeData.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\Animate.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\ContentPlaceholder.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\Cube.cs" />
@@ -230,8 +231,8 @@
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\Region.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\Row.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\RowHeader.cs" />
-    <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\Scrollbar.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\ScrollRect.cs" />
+    <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\Scrollbar.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\Slider.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\Tab.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\TabHeader.cs" />
@@ -247,7 +248,6 @@
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\VirtualizedItemsContainer.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\UI\Window.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\ViewAnimation.cs" />
-    <Compile Include="Assets\MarkLight\Source\Plugins\ViewTypeData.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\VirtualizedItems.cs" />
     <Compile Include="Assets\Scripts\Enemy\PulledToRose.cs" />
     <Compile Include="Assets\Scripts\Enemy\ReceiveForce.cs" />
@@ -267,6 +267,7 @@
     <Compile Include="Assets\Scripts\Manager\Player\MemoryPool.cs" />
     <Compile Include="Assets\Scripts\Manager\Player\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Manager\Rose.cs" />
+    <Compile Include="Assets\Scripts\UI\LoadOnClick.cs" />
     <Compile Include="Assets\Scripts\Weapons\ApplyMagneticForce.cs" />
     <Compile Include="Assets\Scripts\Weapons\BarMagnet.cs" />
     <Compile Include="Assets\Scripts\Weapons\M_field.cs" />
@@ -307,8 +308,8 @@
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearDisplacement.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearDrive.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\LinearMapping.cs" />
-    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Player.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\PlaySound.cs" />
+    <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\Player.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SeeThru.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SleepOnAwake.cs" />
     <Compile Include="Assets\SteamVR\InteractionSystem\Core\Scripts\SoundDeparent.cs" />
@@ -372,6 +373,70 @@
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRBoundary.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRCameraRig.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRCommon.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRDebugHeadController.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRDisplay.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRHaptics.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRHapticsClip.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRInput.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRManager.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVROnCompleteListener.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVROverlay.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRPlatformMenu.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRPlugin.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRProfile.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRTouchpad.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRTracker.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRChromaticAberration.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRCubemapCapture.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRDebugInfo.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRGridCube.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRModeParms.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRMonoscopic.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRPlayerController.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRRTOverlayConnector.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRResetOrientation.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRSceneSampleController.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRWaitCursor.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Samples\GripPoses\Scripts\PoseEditHelper.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Samples\RemoteLoopback\Scripts\RemoteLoopbackManager.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatar.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarAsset.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarAssetMesh.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarAssetTexture.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarBase.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarBody.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarComponent.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarDriver.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarHand.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarLocalDriver.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarPacket.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarProjectorRenderComponent.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarRemoteDriver.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarRenderComponent.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSDKCAPI.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSDKManager.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSettings.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSettingsEditor.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSkinnedMeshRenderComponent.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSkinnedMeshRenderPBSComponent.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarTouchController.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\ParabolaTest\Scripts\ParabolaDrawer.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\ParabolaTest\Scripts\ParabolaRaycaster.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\IUILaserPointer.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\LaserPointerEventData.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\LaserPointerInputModule.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\OVRUILaserPointer.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\UIIgnoreRaycast.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\ViveUILaserPointer.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\_demo\Scripts\DemoLaserPointerTest.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\_demo\Scripts\DemoMenu.cs" />
+    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\_demo\Scripts\GravityGun.cs" />
+    <Compile Include="Assets\comboSlider.cs" />
+    <Compile Include="Assets\wandController_L.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ImportedAssets\Spaceship\readme.txt" />
@@ -457,6 +522,16 @@
     <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
     <None Include="Assets\SteamVR\readme.txt" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\OVR\Editor\AndroidManifest.OVRSubmission.xml" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\OVR\Resources\Unlit Transparent Color.shader" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\OVR\Shaders\OVRColorRampAlpha.shader" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\OVR\Shaders\Unlit Crosshair.shader" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Content\Materials\AvatarMaterialStateShader.cginc" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Content\Materials\AvatarSurfaceShader.shader" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Content\Materials\AvatarSurfaceShaderPBS.shader" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Content\Materials\AvatarSurfaceShaderSelfOccluding.shader" />
+    <None Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Resources\LaserPointer.shader" />
+    <None Include="Assets\Unity-VRInputModule-master\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\Views\Put your views here.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

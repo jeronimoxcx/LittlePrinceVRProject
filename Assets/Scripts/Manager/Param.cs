@@ -44,4 +44,6 @@ public class Param : MonoBehaviour {
     public float shootingTimeItvMin = 0.5f;
     public float shootingTimeItvMax = 1.5f;
 
+    public float barMagnetIndex = -1.0f;
+    public float monopoleIndex = 1.0f;
 }

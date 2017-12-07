@@ -12,7 +12,9 @@ public class ReceiveForce : MonoBehaviour {
     private Vector3 modirose;
     private bool isPulledToRose;
 
-
+    
+    private bool inGage;
+    
     void OnEnable()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
@@ -21,11 +23,16 @@ public class ReceiveForce : MonoBehaviour {
         modirose = rose;
         modirose.z += 2;
         rb = gameObject.GetComponent<Rigidbody>();
-        
+
+        inGage = false;
+        //barGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
     }
 
     void Update()
     {
+        
+        
+
         if (isPulledToRose) pulledToRose();
     }
 
@@ -66,8 +73,20 @@ public class ReceiveForce : MonoBehaviour {
         Vector3 r = target - gameObject.transform.position;
 
 
-        
 
+        if (!inGage && parameters[4] > 0)
+        {
+            if (comboSlider.currentGage < 10)
+            {
+                comboSlider.currentGage++;
+                inGage = true;
+            }
+        }
+
+        else
+        {
+            Debug.Log("I'm not counting");
+        }
 
         //Coulomb force
         if (r.magnitude > param.MF_StopForcingRange)

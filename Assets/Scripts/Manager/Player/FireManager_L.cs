@@ -9,7 +9,7 @@ public class FireManager_L : MonoBehaviour
     public GameObject BarMagnet;
     public float power = 20.0f;
     private int monoSLimit = 3;
-    private int barLimit = 3;
+    private int barLimit = 40;
     private bool up = false;
     private bool down = false;
 
@@ -24,17 +24,22 @@ public class FireManager_L : MonoBehaviour
     public SteamVR_TrackedObject trackedObj;
 
     public bool signal;
+    public bool signal_R;
+    public GameObject controllerRight;
+
 
     // Use this for initialization
     void Start()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+        controllerRight = GameObject.Find("Controller (right)");
     }
 
     // Update is called once per frame
     void Update()
     {
-        signal = controller.GetPressDown(triggerButton);
+        signal = controller.GetPress(gripButton);
+        signal_R = controllerRight.GetComponent<FireManager_R>().signal;
         if (controller == null)
         {
             Debug.Log("Controller not initialized");
@@ -60,9 +65,9 @@ public class FireManager_L : MonoBehaviour
             }
             Debug.Log("triggered");
         }
-
-        if (controller.GetPressDown(gripButton))
-            fireBar();
+        /*
+        if (signal&&signal_R)
+            fireBar();*/
 
         if (controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
         {
@@ -121,7 +126,7 @@ public class FireManager_L : MonoBehaviour
         temp.SendMessage("fly", firePosition_S.forward);
     }
 
-
+    /*
     void fireBar()
     {
         if (barLimit > 0)
@@ -134,6 +139,6 @@ public class FireManager_L : MonoBehaviour
 
             barLimit -= 1;
         }
-    }
+    }*/
 }
 

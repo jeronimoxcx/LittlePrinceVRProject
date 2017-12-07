@@ -9,7 +9,7 @@ public class EnemyGenerator: MonoBehaviour {
 
     Param param;
 
-    private bool isWorking = false;
+    private bool isWorking = true;
 
     public EnemyPool pool;
     private GameObject temp;
