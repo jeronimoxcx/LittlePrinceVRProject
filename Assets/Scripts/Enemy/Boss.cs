@@ -42,15 +42,21 @@ public class Boss : MonoBehaviour {
     {
         if (curMODE == MODE_RED)
         {
+            if (collision.collider.tag == "S")
+                Debug.Log("Hit boss in MODE_RED! It should be damaged");
             if (collision.collider.tag == "N")
-                Debug.Log("Hit boss in MODE_RED");
+                oneStepBack();
+
         } else if (curMODE == MODE_BLUE)
         {
+            if (collision.collider.tag == "N")
+                Debug.Log("Hit boss in MODE_BLUE! It should be damaged");
             if (collision.collider.tag == "S")
-                Debug.Log("Hit boss in MODE_BLUE");
+                oneStepBack();
+
         } else if (curMODE == MODE_PURPLE)
         {
-           Debug.Log("Hit boss in MODE_RED");
+            Debug.Log("Hit boss in MODE_PURPLE! It should be damaged");
         } else
             Debug.Log("No mode in boss");       
     }
@@ -84,6 +90,12 @@ public class Boss : MonoBehaviour {
         float randX = Random.Range(-10.0f, 10.0f);
         float randY = Random.Range(10.0f, 20.0f);
         gameObject.transform.position = new Vector3(randX, randY, gameObject.transform.position.z+ pathPerOnce.z);
+        gameObject.transform.LookAt(rosePose);
+    }
+
+    public void oneStepBack()
+    {
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - pathPerOnce.z);
         gameObject.transform.LookAt(rosePose);
     }
 

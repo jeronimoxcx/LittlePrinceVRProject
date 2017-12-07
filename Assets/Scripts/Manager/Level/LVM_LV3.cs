@@ -7,10 +7,15 @@ using UnityEngine.SceneManagement;
 public class LVM_LV3 : MonoBehaviour {
 
     private Param param;
+
     public GameObject bossSpaceShip;
     public GameObject boss;
 
     public Text text;
+
+    //Disable
+    public GameObject enemyGenerator_Red;
+    public GameObject enemyGenerator_Blue;
 
     //Space Ship animation
     float spaceShipAppearTime = 3.0f;
@@ -27,6 +32,8 @@ public class LVM_LV3 : MonoBehaviour {
     private void Start()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
+        enemyGenerator_Red.SetActive(false);
+        enemyGenerator_Blue.SetActive(false);
         boss.SetActive(false);
 
         //For space ship animation

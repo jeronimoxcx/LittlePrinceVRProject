@@ -16,10 +16,10 @@ public class Param : MonoBehaviour {
      *     - RS_EnemyApprachAngle = 0.01f;
      * 
      * [Enemy Generator]
-     *     - shootingTimeItvMin = 0.5f;
-     *     - shootingTimeItvMax = 1.5f;
-     *     - numPerOnceMin = 1;
-     *     - numPerOnceMin = 3;
+     *     - EM_shootingTimeItvMin = 0.5f;
+     *     - EM_shootingTimeItvMax = 1.5f;
+     *     - EM_numPerOnceMin = 1;
+     *     - EM_numPerOnceMin = 3;
      *     
      * [Magnetic Force]
      *     1. Coulomb Force constants 
@@ -37,6 +37,18 @@ public class Param : MonoBehaviour {
      *     1. Monopole
      *          - PW_Mono_NumOfEnemyOnce = 5;
      *          
+     * ----------------------------------------------------
+     * Lv 2
+     * [Rose]
+     *     - RS_PullToRoseSpeed = 15.0f;
+     *     - RS_EnemyApprachAngle = 0.01f;
+     * 
+     * [Enemy Generator]
+     *     - shootingTimeItvMin = 0.5f;
+     *     - shootingTimeItvMax = 1.5f;
+     *     - numPerOnceMin = 1;
+     *     - numPerOnceMin = 3;
+    
      * 
      * */
 
@@ -50,14 +62,14 @@ public class Param : MonoBehaviour {
     /* Controll parameters: Enemy Generator (Enemy Manager) */
     public float EM_shootingTimeItvMin = 0.5f;
     public float EM_shootingTimeItvMax = 1.5f;
-    public int EM_numPerOnceMin = 2;
-    public int EM_numPerOnceMax = 5;
+    public int EM_numPerOnceMin = 1;
+    public int EM_numPerOnceMax = 3;
 
     /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
     /* Controll parameters: Magnetic Force */
     //1. Coulomb Force constants
-    public float MF_CFfollowC = 1.0f;
-    public float MF_CFawayC = 1.0f;
+    public float MF_CFfollowC = 100.0f;
+    public float MF_CFawayC = 20.0f;
 
     //2. Charge
     public float MF_ChargeEnemy = 10.0f; //magnetic charge (1~10)
@@ -70,14 +82,16 @@ public class Param : MonoBehaviour {
 
     /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
     /* Controll parameters: Player Weapons */
+    //Monopole
     public int PW_Mono_NumOfEnemyOnce = 5;
 
+    //Bar magnet
     public float PW_BarShootingPower = 10.0f;
 
+    //Flat magnet
     public float PW_FieldShootingPower = 10.0f;
     public float PW_FieldSlownFactor = 0.1f;
     public float PW_FieldFastenFactor = 1.1f;
-
 
 
     /*------------------------------------------------------------------------------------------------------------------------------------------------------*/

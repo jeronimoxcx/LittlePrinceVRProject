@@ -21,7 +21,6 @@ public class ReceiveForce : MonoBehaviour {
     {
         param = GameObject.Find("Param").GetComponent<Param>();
         rose = GameObject.Find("Rose").transform.position;
-        rose.z += 0.5f;
         rb = gameObject.GetComponent<Rigidbody>();
 
         isPulledToRose = true;

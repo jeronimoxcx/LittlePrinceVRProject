@@ -62,8 +62,8 @@ public class EnemyGenerator: MonoBehaviour {
             //set position
             temp.transform.position = FirePositionTransform.position;
 
-           // Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-1.0f, 5.0f), 0);
-            Vector3 initialVelocity = new Vector3(0.1f, -0.5f, -0.5f);
+            Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-1.0f, 5.0f), 0);
+            //Vector3 initialVelocity = new Vector3(0.1f, -0.5f, -0.5f);
             initialVelocity.Normalize();
 
             temp.GetComponent<Rigidbody>().velocity = initialVelocity;
