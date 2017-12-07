@@ -92,4 +92,6 @@ public class Param : MonoBehaviour {
     public float LV3_waitInPoseTimeMax = 3.0f;
     public int LV3_teleportTotNum = 10;
 
+    public float barMagnetIndex = -1.0f;
+    public float monopoleIndex = 1.0f;
 }

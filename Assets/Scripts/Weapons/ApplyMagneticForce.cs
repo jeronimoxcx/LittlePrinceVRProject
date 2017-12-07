@@ -19,6 +19,7 @@ public class ApplyMagneticForce : MonoBehaviour {
     private bool inGage = false;
     int countfollow = 0;
 
+
     void OnEnable()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
@@ -28,6 +29,7 @@ public class ApplyMagneticForce : MonoBehaviour {
 
         //BarGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
         inGage = false;
+
     }
 
     void Update()
@@ -82,6 +84,7 @@ public class ApplyMagneticForce : MonoBehaviour {
                     {   
                         hitColliders[i].SendMessage("Away", parameters);
                     }
+
                 }
 
             }
@@ -106,11 +109,12 @@ public class ApplyMagneticForce : MonoBehaviour {
 
     private float[] setParams()
     {
-        float[] parameters = new float[4];
+        float[] parameters = new float[5];
         parameters[0] = gameObject.transform.position.x;
         parameters[1] = gameObject.transform.position.y;
         parameters[2] = gameObject.transform.position.z;
         parameters[3] = param.MF_ChargeMono;
+        parameters[4] = param.monopoleIndex;
 
         return parameters;
     }

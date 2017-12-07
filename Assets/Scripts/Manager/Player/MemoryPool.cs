@@ -9,7 +9,8 @@ public class MemoryPool : MonoBehaviour {
     public GameObject M_Field_S;
     public GameObject Bar_Mag;
     public int poolSize = 50;
-    
+    private int barLimit = 40;
+
     GameObject[] Mono_N_Pool;
     GameObject[] Mono_S_Pool;
     GameObject[] M_Field_N_Pool;
@@ -23,7 +24,7 @@ public class MemoryPool : MonoBehaviour {
         M_Field_N_Pool = new GameObject[poolSize];
         M_Field_S_Pool = new GameObject[poolSize];
 
-        Bar_Pool = new GameObject[3];
+        Bar_Pool = new GameObject[barLimit];
         for (int i = 0; i<poolSize; i++)
         {
             Mono_N_Pool[i] = (GameObject)Instantiate(Mono_N);
@@ -36,7 +37,7 @@ public class MemoryPool : MonoBehaviour {
             M_Field_S_Pool[i] = (GameObject)Instantiate(M_Field_S);
             M_Field_S_Pool[i].SetActive(false);
         }
-        for (int i = 0; i<3; i++)
+        for (int i = 0; i<barLimit; i++)
         {
             Bar_Pool[i] = (GameObject)Instantiate(Bar_Mag);
             Bar_Pool[i].SetActive(false);
@@ -75,7 +76,7 @@ public class MemoryPool : MonoBehaviour {
 
     public GameObject GetBar()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < barLimit; i++)
         {
             if (!Bar_Pool[i].activeSelf)
             {
