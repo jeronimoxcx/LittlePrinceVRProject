@@ -64,6 +64,6 @@ public class BarMagnet : MonoBehaviour {
     void fly(Vector3 direction)
     {
         flydirection = direction;
-        velocity = flydirection * param.barShootingPower;
+        velocity = flydirection * param.PW_BarShootingPower;
     }
 }

@@ -48,7 +48,7 @@ public class M_field : MonoBehaviour {
     void fly(Vector3 direction)
     {
         flydirection = direction;
-        velocity = flydirection * param.fieldShootingPower;
+        velocity = flydirection * param.PW_FieldShootingPower;
         startflying = 1;
         flytime = Time.time + 7.5f;
     }

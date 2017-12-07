@@ -12,7 +12,6 @@ public class EnemyGenerator: MonoBehaviour {
     private bool isWorking = false;
 
     public EnemyPool pool;
-    private GameObject temp;
 
 	public Transform FirePositionTransform;
     
@@ -31,7 +30,7 @@ public class EnemyGenerator: MonoBehaviour {
             if (shootingTimer >= shootingTimeInterval)
             {
                 shootingTimer = 0;
-                shootingTimeInterval = Random.Range(param.shootingTimeItvMin, param.shootingTimeItvMax);
+                shootingTimeInterval = Random.Range(param.EM_shootingTimeItvMin, param.EM_shootingTimeItvMax);
 
                 Shoot();
 
@@ -54,17 +53,22 @@ public class EnemyGenerator: MonoBehaviour {
 
     private void Shoot()
     {
-        temp = pool.GetObject();
+        int numEnemy = Random.Range(param.EM_numPerOnceMin, param.EM_numPerOnceMax);
 
-        //set position
-        temp.transform.position = FirePositionTransform.position;
+        for(int i=0; i<numEnemy; i++)
+        {
+            GameObject temp = pool.GetObject();
 
-        Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-1.0f, 5.0f), 0);
-        initialVelocity.Normalize();
-        initialVelocity *= param.enemyShootingPower;
+            //set position
+            temp.transform.position = FirePositionTransform.position;
 
-        temp.GetComponent<Rigidbody>().velocity = initialVelocity;
-          
+           // Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-1.0f, 5.0f), 0);
+            Vector3 initialVelocity = new Vector3(0.1f, -0.5f, -0.5f);
+            initialVelocity.Normalize();
+
+            temp.GetComponent<Rigidbody>().velocity = initialVelocity;
+            temp.transform.rotation = new Quaternion(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f),0);
+        }
     }
 }
 

@@ -18,7 +18,6 @@ public class LVM_LV2 : MonoBehaviour {
     private void Start()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
-        Debug.Log("param level2:" + param.RF_PullToRoseC);
     }
 
     void Update()

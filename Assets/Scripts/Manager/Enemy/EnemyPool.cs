@@ -26,7 +26,6 @@ public class EnemyPool : MonoBehaviour {
         {
             if (!enemyPool[i].active)
             {
-                enemyPool[i].GetComponent<ReceiveForce>().setIsPulledRoseTrue();
                 enemyPool[i].SetActive(true);
                 return enemyPool[i];
             }

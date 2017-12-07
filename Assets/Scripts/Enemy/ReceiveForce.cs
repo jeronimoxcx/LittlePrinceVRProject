@@ -8,54 +8,42 @@ public class ReceiveForce : MonoBehaviour {
     private Rigidbody rb;
 
     private Vector3 rose;
-    private Vector3 modirose;
     private bool isPulledToRose;
+    private float pulledRoseSpeed;
+    private Transform objectStuckTo;
+    private Vector3 impactPosOffset;
+    private Vector3 impactRotOffset;
+    private bool isStuck;
 
     void OnEnable()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
         rose = GameObject.Find("Rose").transform.position;
-        rose.z += 1;
-        modirose = rose;
-        modirose.z += 2;
+        rose.z += 0.5f;
         rb = gameObject.GetComponent<Rigidbody>();
+
+        isPulledToRose = true;
+        pulledRoseSpeed = param.RS_PullToRoseSpeed;
+        isStuck = false;
     }
 
     void Update()
     {
-        if (isPulledToRose) pulledToRose();
+        if (isPulledToRose) pulledToRose(pulledRoseSpeed);
     }
 
-    /* Force related to rose */
-    public void pulledToRose()
+    /* -----------------------------------------------------------------------------------------------------------------------------------------*/
+    /* [ROSE] */
+    public void pulledToRose(float pullToRoseSpeed)
     {
-        Vector3 r = rose - gameObject.transform.position;
-        Vector3 modir = modirose - gameObject.transform.position;
-        Vector3 force;
-
-        if (gameObject.transform.position.z > 20)
-        {
-            force = param.RF_PullToRoseC * modir.normalized;
-            rb.AddForce(force);
-        }
-        else if (r.magnitude > 8)
-        {
-            force = (param.RF_PullToRoseC + Mathf.Pow(param.RF_PullToRoseC, 3) / Mathf.Pow(modir.magnitude, 1)) * modir.normalized;
-            rb.AddForce(force);
-        }
-        else
-        {
-            rb.velocity = Mathf.Pow(param.RF_PullToRoseC,1.5f) * r.normalized;
-        }
+        Vector3 curDir = gameObject.GetComponent<Rigidbody>().velocity.normalized;
+        Vector3 towardDir = (rose - gameObject.transform.position).normalized;
+        Vector3 updatedDir = Vector3.Lerp(curDir, towardDir, param.RS_EnemyApprachAngle).normalized;
+        gameObject.GetComponent<Rigidbody>().velocity = pulledRoseSpeed * (curDir+updatedDir);
     }
 
-    public void setIsPulledRoseTrue()
-    {
-        isPulledToRose = true;
-    }
-
-
-    /* Force related to monopole */
+    /* -----------------------------------------------------------------------------------------------------------------------------------------*/
+    /* [Magnetid Force- Monopole, magnetic bar] */
     public void Follow(float[] parameters)
     {
         isPulledToRose = false;
@@ -65,10 +53,25 @@ public class ReceiveForce : MonoBehaviour {
         //Coulomb force
         if (r.magnitude > param.MF_StopForcingRange)
         {
-            rb.AddForce(param.MF_CoulombForceFollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+            rb.AddForce(param.MF_CFfollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
         }
         //When two magnets are very close: attach 
-        else rb.velocity = 10 * r.normalized;
+        rb.velocity = 10 * r.normalized;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isStuck = true;
+    }
+
+    public void StuckToPW(float[] parameters)
+    {
+        if(isStuck)
+        {
+            Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
+            Vector3 r = target - gameObject.transform.position;
+            rb.velocity = 15 * r.normalized;
+        }
     }
 
     public void Away(float[] parameters)
@@ -76,22 +79,19 @@ public class ReceiveForce : MonoBehaviour {
         Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
         Vector3 r = gameObject.transform.position - target;
 
-        rb.AddForce(param.MF_CoulombForceAwayC * param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3));
+        rb.AddForce(param.MF_CFawayC * param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3));
     }
 
+    /* -----------------------------------------------------------------------------------------------------------------------------------------*/
     /* For the flat magnetic field */
     void Slowdown()
     {
-        Debug.Log("slowdown");
-        Debug.Log("before:"+rb.velocity);
-        rb.velocity *= 0.1F;
-        Debug.Log("after:"+rb.velocity);
-        //Debug.Log("Message Received");
+        pulledRoseSpeed = pulledRoseSpeed * param.PW_FieldSlownFactor;
     }
 
     void Fastenup()
     {
-        rb.velocity *= 1.5F;
+        pulledRoseSpeed = pulledRoseSpeed * param.PW_FieldFastenFactor;
     }
 
 

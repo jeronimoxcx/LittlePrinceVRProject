@@ -257,7 +257,6 @@
     <Compile Include="Assets\OutlineEffect\Outline.cs" />
     <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss.cs" />
-    <Compile Include="Assets\Scripts\Enemy\PulledToRose.cs" />
     <Compile Include="Assets\Scripts\Enemy\ReceiveForce.cs" />
     <Compile Include="Assets\Scripts\Manager\Collect.cs" />
     <Compile Include="Assets\Scripts\Manager\Enemy\EnemyGenerator.cs" />
