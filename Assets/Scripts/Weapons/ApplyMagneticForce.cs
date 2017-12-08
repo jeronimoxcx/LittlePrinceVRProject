@@ -13,12 +13,6 @@ public class ApplyMagneticForce : MonoBehaviour {
     private int enemyCounter = 0;
 
 
-    public Slider BarGageSlider;
-    public int maxGage = 10;
-    private int currentGage = 0;
-    private bool inGage = false;
-    int countfollow = 0;
-
 
     void OnEnable()
     {
@@ -67,18 +61,7 @@ public class ApplyMagneticForce : MonoBehaviour {
                     {
                         hitColliders[i].SendMessage("Follow", parameters);
 
-                        if (!inGage)
-                        {
-                            countfollow++;
-                            //Debug.Log("number of balls followed" + countfollow);
-                        }
-                        if (!inGage && currentGage < maxGage)
-                        {
-                            currentGage++;
-                            //Debug.Log("current Gage" + currentGage);
-                            //BarGageSlider.value = currentGage;
-                            inGage = true;
-                        }
+                       
                     }
                     else if (hitColliders[i].tag == gameObject.tag)
                     {   

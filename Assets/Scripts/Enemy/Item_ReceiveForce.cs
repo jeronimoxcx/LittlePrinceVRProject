@@ -55,7 +55,7 @@ public class Item_ReceiveForce : MonoBehaviour {
         Vector3 r = target - gameObject.transform.position;
 
         //todo: 건선쓰 일단 하나면 끌려간다고 생각하고 여기다가 해줄랭...?
-        if (!inGage && parameters[4] > 0)
+        if (!inGage && parameters[4] < 0)
         {
             if (comboSlider.currentGage < 10)
             {
