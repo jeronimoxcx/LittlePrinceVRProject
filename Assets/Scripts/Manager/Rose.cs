@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rose : MonoBehaviour {
     public TextMesh roseHp; // = new TextMesh();
     public int healthPoint = 20;
-
+    public GameObject particleEffect;
 
     public bool gameover = false;
 
@@ -18,9 +18,12 @@ public class Rose : MonoBehaviour {
 
 
     private void OnCollisionEnter(Collision collision)
-    {   
-        
+    {
+
+        Instantiate(particleEffect,collision.contacts[0].point, Quaternion.identity);
+
         collision.gameObject.SetActive(false);
+
         //Debug.Log(collision.gameObject.name);
         healthPoint--;
         if (gameover) return;

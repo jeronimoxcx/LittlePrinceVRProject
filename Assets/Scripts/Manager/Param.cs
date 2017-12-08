@@ -65,6 +65,8 @@ public class Param : MonoBehaviour {
     public int EM_numPerOnceMin = 1;
     public int EM_numPerOnceMax = 3;
 
+    public int EN_numOfMonoForItem = 3;
+
     /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
     /* Controll parameters: Magnetic Force */
     //1. Coulomb Force constants
