@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "따오기", "따오기.csproj", "{53E63DA9-F682-B9BB-BD2F-63D7D8062705}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "따오기.Editor", "따오기.Editor.csproj", "{D2924357-181F-C75B-531E-15BC173B70D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53E63DA9-F682-B9BB-BD2F-63D7D8062705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E63DA9-F682-B9BB-BD2F-63D7D8062705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E63DA9-F682-B9BB-BD2F-63D7D8062705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E63DA9-F682-B9BB-BD2F-63D7D8062705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2924357-181F-C75B-531E-15BC173B70D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2924357-181F-C75B-531E-15BC173B70D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2924357-181F-C75B-531E-15BC173B70D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2924357-181F-C75B-531E-15BC173B70D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
