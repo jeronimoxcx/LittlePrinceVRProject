@@ -10,7 +10,8 @@ public class LVM_LV1 : MonoBehaviour {
 
     public GameObject enemyGeneratorRed;
     public GameObject enemyGeneratorBlue;
-    public Text text;
+    public GameObject levelScroll;
+    public TextMesh levelText;
 
     private float timer=0.0f;
     private int onceFlag = 1;
@@ -18,6 +19,8 @@ public class LVM_LV1 : MonoBehaviour {
     private void Start()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
+        levelScroll = GameObject.Find("Scroll");
+        levelText = GameObject.Find("leveltext").GetComponent<TextMesh>();
     }
 
     void Update () {
@@ -25,7 +28,8 @@ public class LVM_LV1 : MonoBehaviour {
         if (timer < param.LV_showTextTime)
         {
             timer += Time.deltaTime;
-            text.text = ("Level1");
+            levelText.text = ("Level 1");
+            
         }
         else //if (timer < param.LV_showTextTime+param.LV_playTime) 
         {
@@ -34,7 +38,8 @@ public class LVM_LV1 : MonoBehaviour {
             if (onceFlag == 1)
             {
                 onceFlag = 0;
-                text.text = ("");
+                levelScroll.SetActive(false);
+                levelText.text = "";
                 enemyGeneratorRed.SendMessage("StartWorking");
                 enemyGeneratorBlue.SendMessage("StartWorking");
             }
