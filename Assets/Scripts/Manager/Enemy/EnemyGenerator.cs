@@ -17,6 +17,7 @@ public class EnemyGenerator: MonoBehaviour {
     
     private float shootingTimeInterval = 0.0f;
     private float shootingTimer = 0.0f;
+    private float shootingItemEnemyTimer = 0.0f;
 
     void Start()
     {
@@ -37,6 +38,15 @@ public class EnemyGenerator: MonoBehaviour {
             }
             else
                 shootingTimer += Time.deltaTime;
+
+            if (shootingItemEnemyTimer >= 3)
+            {
+                shootingItemEnemyTimer = 0;
+                ShootItemEnemy();
+
+            }
+            else
+                shootingItemEnemyTimer += Time.deltaTime;
         }
 
     }
@@ -70,5 +80,22 @@ public class EnemyGenerator: MonoBehaviour {
             temp.transform.rotation = new Quaternion(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f),0);
         }
     }
+
+    private void ShootItemEnemy()
+    {
+        GameObject temp = pool.GetItemObject();
+
+        //set position
+        temp.transform.position = FirePositionTransform.position;
+
+        //set scale
+        Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-1.0f, 5.0f), 0);
+        //Vector3 initialVelocity = new Vector3(0.1f, -0.5f, -0.5f);
+        initialVelocity.Normalize();
+
+        temp.GetComponent<Rigidbody>().velocity = initialVelocity;
+        temp.transform.rotation = new Quaternion(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), 0);
+    }
+
 }
 

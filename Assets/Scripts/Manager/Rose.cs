@@ -23,6 +23,7 @@ public class Rose : MonoBehaviour {
         Instantiate(particleEffect,collision.contacts[0].point, Quaternion.identity);
 
         collision.gameObject.SetActive(false);
+
         //Debug.Log(collision.gameObject.name);
         healthPoint--;
         if (gameover) return;

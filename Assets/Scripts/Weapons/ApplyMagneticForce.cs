@@ -76,7 +76,7 @@ public class ApplyMagneticForce : MonoBehaviour {
                         {
                             currentGage++;
                             //Debug.Log("current Gage" + currentGage);
-                            BarGageSlider.value = currentGage;
+                            //BarGageSlider.value = currentGage;
                             inGage = true;
                         }
                     }
