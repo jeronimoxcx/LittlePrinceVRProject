@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\comboSlider.cs" />
+    <Compile Include="Assets\ImportedAssets\FullTiltBoogie\RotateFlareHolder.cs" />
     <Compile Include="Assets\LevelScroll.cs" />
     <Compile Include="Assets\MarkLight\Examples\Source\Data\Data.cs" />
     <Compile Include="Assets\MarkLight\Examples\Source\UI\Basic\ButtonsExample.cs" />
