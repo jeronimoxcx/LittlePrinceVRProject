@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/HTCViveTest.unity
+- path: Assets/Level0.unity
   isLoaded: 1
   isActive: 1
