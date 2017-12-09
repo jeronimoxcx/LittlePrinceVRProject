@@ -22,7 +22,7 @@ public class ApplyMagneticForce : MonoBehaviour {
         enemyCounter = 0;
 
         //BarGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
-        inGage = false;
+        //inGage = false;
 
     }
 
