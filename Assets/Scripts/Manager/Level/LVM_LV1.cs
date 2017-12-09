@@ -24,7 +24,11 @@ public class LVM_LV1 : MonoBehaviour {
     }
 
     void Update () {
-
+        if (Rose.gameover)
+        {
+            levelScroll.SetActive(true);
+            levelText.text = "Game Over!";
+        }
         if (timer < param.LV_showTextTime)
         {
             timer += Time.deltaTime;
