@@ -2,43 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPool : MonoBehaviour
-{
+public class EnemyPool : MonoBehaviour {
 
-    public GameObject enemyPrefab, enemyItemPrefab, sphereEnemyPrefab;
-
+    public GameObject enemyPrefab;
+    public GameObject enemyItemPrefab;
     public int poolSize;
 
-    GameObject[] enemyPool, enemyItemPool, sphereEnemyPool;
+    GameObject[] enemyPool;
+    GameObject[] enemyItemPool;
 
+    // Use this for initialization
     void Start()
     {
-        //Initialize pools
-        enemyPool = new GameObject[poolSize];
-        enemyItemPool = new GameObject[poolSize / 2];
-        sphereEnemyPool = new GameObject[poolSize / 2];
-
+        //enemyPool = new GameObject[poolSize];
+        //for (int i = 0; i < poolSize; i++)
+        //{
+        //    enemyPool[i] = (GameObject)Instantiate(enemyPrefab);
+        //    enemyPool[i].SetActive(false);
+        //}
+        enemyItemPool = new GameObject[poolSize];
         for (int i = 0; i < poolSize; i++)
-        {
-            enemyPool[i] = (GameObject)Instantiate(enemyPrefab);
-            enemyPool[i].SetActive(false);
-        }
-
-        for (int i = 0; i < poolSize / 2; i++)
         {
             enemyItemPool[i] = (GameObject)Instantiate(enemyItemPrefab);
             enemyItemPool[i].SetActive(false);
-
-            //sphereEnemyPool[i] = (GameObject)Instantiate(sphereEnemyPrefab);
-            //sphereEnemyPool[i].SetActive(false);
-
         }
-
     }
 
     public GameObject GetObject()
     {
-        //Debug.Log("GetObject");
         for (int i = 0; i < poolSize; i++)
         {
             if (!enemyPool[i].active)
@@ -63,18 +54,5 @@ public class EnemyPool : MonoBehaviour
         return null;
     }
 
-    public GameObject GetSphereEnemy()
-    {
-        //for (int i = 0; i < poolSize; i++)
-        //{
-        //    if (!sphereEnemyPool[i].active)
-        //    {
-        //        sphereEnemyPool[i].SetActive(true);
-        //        return sphereEnemyPool[i];
-        //    }
-        //}
-        Debug.Log("getsphereenemy");
-        return (GameObject)Instantiate(sphereEnemyPrefab);
-    }
 
 }

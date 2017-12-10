@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item_ReceiveForce : MonoBehaviour {
+public class Item_ReceiveForce : MonoBehaviour
+{
 
     private Param param;
     private Rigidbody rb;
 
     private Vector3 rose;
     private bool isPulledToRose;
-
-
 
     private float pulledRoseSpeed;
     private bool isStuck;
@@ -63,7 +62,7 @@ public class Item_ReceiveForce : MonoBehaviour {
     /* [Magnetid Force- Monopole, magnetic bar] */
 
     int numOfMono = 0;
-    ArrayList monoList; 
+    ArrayList monoList;
 
     public void Follow(float[] parameters)
     {
@@ -73,11 +72,12 @@ public class Item_ReceiveForce : MonoBehaviour {
             monoList.Add(parameters[5]);
             Debug.Log("numOfMono:" + numOfMono);
         }
-        if(numOfMono>3){ 
+        if (numOfMono > 3)
+        {
             isPulledToRose = false;
             Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
             Vector3 r = target - gameObject.transform.position;
-            
+
             if (!inGage && parameters[4] < 0)
             {
                 if (comboSlider.currentGage < 10)
@@ -89,18 +89,6 @@ public class Item_ReceiveForce : MonoBehaviour {
             else
             {
                 Debug.Log("I'm not counting");
-        isPulledToRose = false;
-        Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
-        Vector3 r = target - gameObject.transform.position;
-
-        //todo: 지금 현재는 monopole이기만하면 끌려감!
-        if (!inGage && parameters[4] == 1)
-        {
-            if (comboSlider.currentGage < comboSlider.maxGage)
-            {
-                comboSlider.currentGage++;
-                inGage = true;
-                Debug.Log("currentGage" + comboSlider.currentGage);
             }
 
             //Coulomb force
@@ -114,8 +102,8 @@ public class Item_ReceiveForce : MonoBehaviour {
     }
 
     private void OnCollisionEnter(Collision collision)
-    {   
-        if(numOfMono>3) 
+    {
+        if (numOfMono > 3)
             isStuck = true;
     }
 

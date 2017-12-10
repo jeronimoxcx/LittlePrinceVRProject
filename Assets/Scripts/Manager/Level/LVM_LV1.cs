@@ -8,21 +8,13 @@ public class LVM_LV1 : MonoBehaviour {
 
     private Param param;
 
-<<<<<<< HEAD
     public GameObject spaceshipRed;
     public GameObject spaceshipBlue;
+
     public EnemyGenerator enemyGeneratorRed;
     public EnemyGenerator enemyGeneratorBlue;
     public GameObject rose;
-<<<<<<< HEAD
-    public GameObject enemyGeneratorRed;
-    public GameObject enemyGeneratorBlue;
-=======
-=======
-    public GameObject enemyGeneratorRed;
-    public GameObject enemyGeneratorBlue;
->>>>>>> ef133824dc71e00bc1cc3a786d23f3d31463d6ae
->>>>>>> f0f29481088989048a2f1795cc71373962f251d1
+
     public GameObject levelScroll;
     public TextMesh levelText;
     public GameObject gameStatusCanvas;
@@ -38,13 +30,20 @@ public class LVM_LV1 : MonoBehaviour {
 
 
     private float timer=0.0f;
+    private int onceFlag = 1;
 
     private void Start()
+    {
+        resetGame();
+
+    }
+
+    public void resetGame()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
         levelScroll = GameObject.Find("Scroll");
         levelText = GameObject.Find("leveltext").GetComponent<TextMesh>();
-        //gameStatusCanvas = GameObject.Find("GameStatusCanvas");
+
         nextLevelButton = GameObject.Find("NextLevel");
         tryAgainButton = GameObject.Find("TryAgain");
 
@@ -66,8 +65,8 @@ public class LVM_LV1 : MonoBehaviour {
         gameStatusCanvas.SetActive(false);
         controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = false;
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
+    
     }
-
 
     void Update () {
         if (Rose.gameover)
@@ -86,11 +85,11 @@ public class LVM_LV1 : MonoBehaviour {
             nextLevelButton.SetActive(false);
 
         }
+
         if (timer < param.LV_showTextTime)
         {
             timer += Time.deltaTime;
             levelText.text = ("Level 1");
-<<<<<<< HEAD
 
         }
         //MODE1: spaceships are static, shoot only one type per each.
@@ -101,13 +100,6 @@ public class LVM_LV1 : MonoBehaviour {
             shootBasicEnemyS(1.0f);
             shootItemEnemyN(3.0f);
             shootItemEnemyS(3.0f);
-<<<<<<< HEAD
-            
-=======
-=======
-            
->>>>>>> ef133824dc71e00bc1cc3a786d23f3d31463d6ae
->>>>>>> f0f29481088989048a2f1795cc71373962f251d1
         }
         //MODE2: spaceships are moving, shoot only one type per each.
         else if (timer < param.LV_showTextTime + 20)
@@ -120,23 +112,6 @@ public class LVM_LV1 : MonoBehaviour {
             shootItemEnemyN(3.0f);
             shootItemEnemyS(3.0f);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f0f29481088989048a2f1795cc71373962f251d1
-            if (onceFlag == 1)
-            {
-                onceFlag = 0;
-                levelScroll.SetActive(false);
-                levelText.text = "";
-                enemyGeneratorRed.SendMessage("StartWorking");
-                enemyGeneratorBlue.SendMessage("StartWorking");
-            }
-<<<<<<< HEAD
-=======
->>>>>>> ef133824dc71e00bc1cc3a786d23f3d31463d6ae
->>>>>>> f0f29481088989048a2f1795cc71373962f251d1
         }
         ////MODE3: spaceships are moving, faster
         //else if (timer < param.LV_showTextTime + 30)
@@ -166,11 +141,12 @@ public class LVM_LV1 : MonoBehaviour {
         //    shootSphereEnemyS(3.0f);
 
         //}
-        else 
+        else
         {
             //todo: set parameters or not
             SceneManager.LoadScene("Level2");
         }
+
     }
 
     /* Move spaceships -------------------------------------------------------------------------------*/
@@ -232,7 +208,7 @@ public class LVM_LV1 : MonoBehaviour {
         }
         else
         {
-            basicEtimerN  += Time.deltaTime;
+            basicEtimerN += Time.deltaTime;
         }
     }
 
