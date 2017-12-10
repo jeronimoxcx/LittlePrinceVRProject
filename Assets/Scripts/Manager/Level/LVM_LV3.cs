@@ -11,11 +11,13 @@ public class LVM_LV3 : MonoBehaviour {
     public GameObject bossSpaceShip;
     public GameObject boss;
 
-    public Text text;
+    public GameObject levelScroll;
+    public TextMesh levelText;
 
     //Disable
     public GameObject enemyGenerator_Red;
     public GameObject enemyGenerator_Blue;
+    public GameObject barUI;
 
     //Space Ship animation
     float spaceShipAppearTime = 3.0f;
@@ -36,6 +38,12 @@ public class LVM_LV3 : MonoBehaviour {
         enemyGenerator_Blue.SetActive(false);
         boss.SetActive(false);
 
+        levelScroll = GameObject.Find("Scroll");
+        levelText = GameObject.Find("leveltext").GetComponent<TextMesh>();
+        barUI = GameObject.Find("BarSlider");
+        barUI.SetActive(false);
+
+
         //For space ship animation
         spaceShipStartPose = new Vector3(-6.7f, 25.6f, 70.4f);
         spaceShipTargetPose = new Vector3(-6.7f, 15.85f, 35.51f);
@@ -48,12 +56,13 @@ public class LVM_LV3 : MonoBehaviour {
         if (timer < param.LV_showTextTime)
         {
             timer += Time.deltaTime;
-            text.text = ("Level3");
+            levelText.text = ("Level 3");
         } // Appear space ship
         else if(timer < param.LV_showTextTime + spaceShipAppearTime)
         {
             timer += Time.deltaTime;
-            text.text = ("");
+            levelScroll.SetActive(false);
+            levelText.text = ("");
             bossSpaceShip.GetComponent<Rigidbody>().velocity = spaceShipVelocity;
 
         }
@@ -67,6 +76,7 @@ public class LVM_LV3 : MonoBehaviour {
         {
             timer += Time.deltaTime;
             boss.SetActive(true);
+            barUI.SetActive(true);
         }
         else if (timer < param.LV_showTextTime + spaceShipAppearTime + param.LV_playTime)
         {

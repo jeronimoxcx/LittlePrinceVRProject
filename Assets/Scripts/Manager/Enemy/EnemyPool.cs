@@ -66,6 +66,7 @@ public class EnemyPool : MonoBehaviour
         return null;
     }
 
+<<<<<<< HEAD
     public GameObject GetSphereEnemy()
     {
         //for (int i = 0; i < poolSize; i++)
@@ -91,5 +92,7 @@ public class EnemyPool : MonoBehaviour
         }
         return null;
     }
+=======
+>>>>>>> 16f6718cb9e667bd846482d652550db896968bac
 
 }

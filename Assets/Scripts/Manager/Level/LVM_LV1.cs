@@ -8,11 +8,16 @@ public class LVM_LV1 : MonoBehaviour {
 
     private Param param;
 
+<<<<<<< HEAD
     public GameObject spaceshipRed;
     public GameObject spaceshipBlue;
     public EnemyGenerator enemyGeneratorRed;
     public EnemyGenerator enemyGeneratorBlue;
     public GameObject rose;
+=======
+    public GameObject enemyGeneratorRed;
+    public GameObject enemyGeneratorBlue;
+>>>>>>> 16f6718cb9e667bd846482d652550db896968bac
     public GameObject levelScroll;
     public TextMesh levelText;
 
@@ -27,6 +32,7 @@ public class LVM_LV1 : MonoBehaviour {
 
 
     void Update () {
+<<<<<<< HEAD
 
         if (timer < param.LV_showTextTime+40)
         {
@@ -34,6 +40,17 @@ public class LVM_LV1 : MonoBehaviour {
             //levelText.text = ("Level 1");
             //shootSphereEnemyN(3);
             shootItemEnemyS(3);
+=======
+        if (Rose.gameover)
+        {
+            levelScroll.SetActive(true);
+            levelText.text = "Game Over!";
+        }
+        if (timer < param.LV_showTextTime)
+        {
+            timer += Time.deltaTime;
+            levelText.text = ("Level 1");
+>>>>>>> 16f6718cb9e667bd846482d652550db896968bac
             
         }
         ////MODE1: spaceships are static, shoot only one type per each.
@@ -56,9 +73,22 @@ public class LVM_LV1 : MonoBehaviour {
         //    shootItemEnemyN(3.0f);
         //    shootItemEnemyS(3.0f);
 
+<<<<<<< HEAD
         //}
         ////MODE3: spaceships are moving, faster
         //else if (timer < param.LV_showTextTime + 30)
+=======
+            if (onceFlag == 1)
+            {
+                onceFlag = 0;
+                levelScroll.SetActive(false);
+                levelText.text = "";
+                enemyGeneratorRed.SendMessage("StartWorking");
+                enemyGeneratorBlue.SendMessage("StartWorking");
+            }
+        }
+        //else 
+>>>>>>> 16f6718cb9e667bd846482d652550db896968bac
         //{
         //    timer += Time.deltaTime;
         //    MoveSpaceShipRed(2.0f, 10);
