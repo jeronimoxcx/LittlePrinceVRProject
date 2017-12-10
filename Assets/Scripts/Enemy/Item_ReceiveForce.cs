@@ -63,22 +63,22 @@ public class Item_ReceiveForce : MonoBehaviour {
     /* [Magnetid Force- Monopole, magnetic bar] */
 
     int numOfMono = 0;
-    ArrayList monoList; 
+    ArrayList monoList;
 
     public void Follow(float[] parameters)
     {
-<<<<<<< HEAD
+
         if (!monoList.Contains(parameters[5]))
         {
             numOfMono++;
             monoList.Add(parameters[5]);
             Debug.Log("numOfMono:" + numOfMono);
         }
-        if(numOfMono>3){ 
+        if (numOfMono > 3) {
             isPulledToRose = false;
             Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
             Vector3 r = target - gameObject.transform.position;
-            
+
             if (!inGage && parameters[4] < 0)
             {
                 if (comboSlider.currentGage < 10)
@@ -90,54 +90,53 @@ public class Item_ReceiveForce : MonoBehaviour {
             else
             {
                 Debug.Log("I'm not counting");
-=======
-        isPulledToRose = false;
-        Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
-        Vector3 r = target - gameObject.transform.position;
 
-        //todo: 지금 현재는 monopole이기만하면 끌려감!
-        if (!inGage && parameters[4] == 1)
-        {
-            if (comboSlider.currentGage < comboSlider.maxGage)
-            {
-                comboSlider.currentGage++;
-                inGage = true;
-                Debug.Log("currentGage" + comboSlider.currentGage);
->>>>>>> 16f6718cb9e667bd846482d652550db896968bac
-            }
+                //todo: 지금 현재는 monopole이기만하면 끌려감!
+                if (!inGage && parameters[4] == 1)
+                {
+                    if (comboSlider.currentGage < comboSlider.maxGage)
+                    {
+                        comboSlider.currentGage++;
+                        inGage = true;
+                        Debug.Log("currentGage" + comboSlider.currentGage);
 
-            //Coulomb force
-            if (r.magnitude > param.MF_StopForcingRange)
-            {
-                rb.AddForce(param.MF_CFfollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+                    }
+
+                    //Coulomb force
+                    if (r.magnitude > param.MF_StopForcingRange)
+                    {
+                        rb.AddForce(param.MF_CFfollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+                    }
+                    //When two magnets are very close: attach 
+                    rb.velocity = 10 * r.normalized;
+                }
             }
-            //When two magnets are very close: attach 
-            rb.velocity = 10 * r.normalized;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {   
-        if(numOfMono>3) 
-            isStuck = true;
-    }
+            private void OnCollisionEnter(Collision collision)
+            {
+                if (numOfMono > 3)
+                    isStuck = true;
+            }
 
-    public void StuckToPW(float[] parameters)
-    {
-        if (isStuck)
-        {
-            Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
-            Vector3 r = target - gameObject.transform.position;
-            rb.velocity = 15 * r.normalized;
+            public void StuckToPW(float[] parameters)
+            {
+                if (isStuck)
+                {
+                    Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
+                    Vector3 r = target - gameObject.transform.position;
+                    rb.velocity = 15 * r.normalized;
+                }
+            }
+
+            public void Away(float[] parameters)
+            {
+                Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
+                Vector3 r = gameObject.transform.position - target;
+
+                rb.AddForce(param.MF_CFawayC * param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3));
+            }
+
         }
-    }
-
-    public void Away(float[] parameters)
-    {
-        Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
-        Vector3 r = gameObject.transform.position - target;
-
-        rb.AddForce(param.MF_CFawayC * param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3));
-    }
-
-}
+    
