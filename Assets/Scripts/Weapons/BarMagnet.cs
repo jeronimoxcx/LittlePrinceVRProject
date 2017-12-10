@@ -38,14 +38,14 @@ public class BarMagnet : MonoBehaviour {
         parametersBarS[1] = bar_S.transform.position.y;
         parametersBarS[2] = bar_S.transform.position.z;
         parametersBarS[3] = param.MF_ChargeBar;
-        parametersBarS[4] = param.barMagnetIndex;
+        //parametersBarS[4] = param.barMagnetIndex;
 
         float[] parametersBarN = new float[5];
         parametersBarN[0] = bar_N.transform.position.x;
         parametersBarN[1] = bar_N.transform.position.y;
         parametersBarN[2] = bar_N.transform.position.z;
         parametersBarN[3] = param.MF_ChargeBar;
-        parametersBarN[4] = param.barMagnetIndex;
+        //parametersBarN[4] = param.barMagnetIndex;
 
         for (int i = 0; i < hitColliders.Length; i++)
         {

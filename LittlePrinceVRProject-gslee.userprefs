@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{116CADE8-7A72-D9C1-ECE8-7D034793F78B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Item_ReceiveForce.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Manager/Param.cs" Line="78" Column="63" />
+      <File FileName="Assets/Scripts/Manager/Level/LVM_LV1.cs" Line="35" Column="32" />
+      <File FileName="Assets/Scripts/Manager/Enemy/EnemyGenerator.cs" Line="55" Column="38" />
+      <File FileName="Assets/Scripts/Manager/Enemy/EnemyPool.cs" Line="31" Column="47" />
+      <File FileName="Assets/Scripts/Weapons/BarMagnet.cs" Line="48" Column="45" />
+      <File FileName="Assets/Scripts/Enemy/Boss.cs" Line="86" Column="6" />
+      <File FileName="Assets/Scripts/Manager/Level/LVM_LV3.cs" Line="57" Column="82" />
+      <File FileName="Assets/Scripts/Enemy/ReceiveForce.cs" Line="84" Column="6" />
+      <File FileName="Assets/Scripts/Enemy/sphereEnemy.cs" Line="57" Column="6" />
+      <File FileName="Assets/Scripts/Enemy/Item_ReceiveForce.cs" Line="31" Column="83" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.LittlePrinceVRProject-gslee PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

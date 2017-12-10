@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6C5791C1-B5B3-EC72-1F0B-2E54E0FD2335}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
@@ -50,31 +50,31 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEditor">
-      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Timeline">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
-      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -277,7 +277,18 @@
     <Compile Include="Assets\Scripts\Manager\Player\MemoryPool.cs" />
     <Compile Include="Assets\Scripts\Manager\Player\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Manager\Rose.cs" />
+    <Compile Include="Assets\Scripts\UI\GameMenu\DontDestroy.cs" />
+    <Compile Include="Assets\Scripts\UI\GameMenu\EventSystemChecker.cs" />
+    <Compile Include="Assets\Scripts\UI\GameMenu\Pause.cs" />
+    <Compile Include="Assets\Scripts\UI\GameMenu\PlayMusic.cs" />
+    <Compile Include="Assets\Scripts\UI\GameMenu\QuitApplication.cs" />
+    <Compile Include="Assets\Scripts\UI\GameMenu\SetAudioLevels.cs" />
+    <Compile Include="Assets\Scripts\UI\GameMenu\ShowPanels.cs" />
+    <Compile Include="Assets\Scripts\UI\GameMenu\StartOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelSwitch.cs" />
     <Compile Include="Assets\Scripts\UI\LoadOnClick.cs" />
+    <Compile Include="Assets\Scripts\UI\VRUIInput.cs" />
+    <Compile Include="Assets\Scripts\UI\VRUIItem.cs" />
     <Compile Include="Assets\Scripts\Weapons\ApplyMagneticForce.cs" />
     <Compile Include="Assets\Scripts\Weapons\BarMagnet.cs" />
     <Compile Include="Assets\Scripts\Weapons\M_field.cs" />
@@ -383,68 +394,6 @@
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRBoundary.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRCameraRig.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRCommon.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRDebugHeadController.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRDisplay.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRHaptics.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRHapticsClip.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRInput.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRManager.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVROnCompleteListener.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVROverlay.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRPlatformMenu.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRPlugin.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRProfile.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRTouchpad.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\OVRTracker.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRChromaticAberration.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRCubemapCapture.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRDebugInfo.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRGridCube.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRModeParms.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRMonoscopic.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRPlayerController.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRResetOrientation.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRRTOverlayConnector.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRSceneSampleController.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OVR\Scripts\Util\OVRWaitCursor.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Samples\GripPoses\Scripts\PoseEditHelper.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Samples\RemoteLoopback\Scripts\RemoteLoopbackManager.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatar.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarAsset.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarAssetMesh.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarAssetTexture.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarBase.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarBody.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarComponent.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarDriver.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarHand.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarLocalDriver.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarPacket.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarProjectorRenderComponent.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarRemoteDriver.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarRenderComponent.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSDKCAPI.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSDKManager.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSettings.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSettingsEditor.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSkinnedMeshRenderComponent.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarSkinnedMeshRenderPBSComponent.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Scripts\OvrAvatarTouchController.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\ParabolaTest\Scripts\ParabolaDrawer.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\ParabolaTest\Scripts\ParabolaRaycaster.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\_demo\Scripts\DemoLaserPointerTest.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\_demo\Scripts\DemoMenu.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\_demo\Scripts\GravityGun.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\IUILaserPointer.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\LaserPointerEventData.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\LaserPointerInputModule.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\OVRUILaserPointer.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\UIIgnoreRaycast.cs" />
-    <Compile Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Scripts\ViveUILaserPointer.cs" />
     <Compile Include="Assets\wandController_L.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -533,16 +482,7 @@
     <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
     <None Include="Assets\SteamVR\readme.txt" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\OVR\Editor\AndroidManifest.OVRSubmission.xml" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\OVR\Resources\Unlit Transparent Color.shader" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\OVR\Shaders\OVRColorRampAlpha.shader" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\OVR\Shaders\Unlit Crosshair.shader" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Content\Materials\AvatarMaterialStateShader.cginc" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Content\Materials\AvatarSurfaceShader.shader" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Content\Materials\AvatarSurfaceShaderPBS.shader" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\OvrAvatar\Content\Materials\AvatarSurfaceShaderSelfOccluding.shader" />
-    <None Include="Assets\Unity-VRInputModule-master\Assets\VRInputModule\Resources\LaserPointer.shader" />
-    <None Include="Assets\Unity-VRInputModule-master\ProjectSettings\ProjectVersion.txt" />
+    <None Include="Assets\UI\Fonts\OpenSans\License!.txt" />
     <None Include="Assets\Views\Put your views here.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

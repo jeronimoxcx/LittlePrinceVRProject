@@ -53,6 +53,22 @@ public class Param : MonoBehaviour {
      * */
 
     /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    /* About stage and level */
+    //Start
+    public float LV_StartTime = 2.0f;
+    //Level 1,2,3 (Common)
+    public float LV_showTextTime = 2.0f;
+    public float LV_playTime = 50.0f;
+    //Level3
+    public float LV3_waitInPoseTimeMin = 1.0f;
+    public float LV3_waitInPoseTimeMax = 3.0f;
+    public int LV3_teleportTotNum = 10;
+
+    public float ItemIndex = -1.0f;
+    public float monopoleIndex = 1.0f;
+
+
+    /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
     /* Controll parameters: Pulled to Rose */
     public float RS_PullToRoseSpeed = 10.0f; 
     public float RS_EnemyApprachAngle = 0.01f; // if this value is low, enemies spread more
@@ -90,24 +106,11 @@ public class Param : MonoBehaviour {
     //Bar magnet
     public float PW_BarShootingPower = 10.0f;
 
+
     //Flat magnet
     public float PW_FieldShootingPower = 10.0f;
     public float PW_FieldSlownFactor = 0.1f;
     public float PW_FieldFastenFactor = 1.1f;
 
 
-    /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
-    /* About stage and level */
-    //Start
-    public float LV_StartTime = 2.0f;
-    //Level 1,2,3 (Common)
-    public float LV_showTextTime = 2.0f;
-    public float LV_playTime = 3.0f;
-    //Level3
-    public float LV3_waitInPoseTimeMin = 1.0f;
-    public float LV3_waitInPoseTimeMax = 3.0f;
-    public int LV3_teleportTotNum = 10;
-
-    public float barMagnetIndex = -1.0f;
-    public float monopoleIndex = 1.0f;
 }

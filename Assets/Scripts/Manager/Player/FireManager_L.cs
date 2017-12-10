@@ -8,12 +8,14 @@ public class FireManager_L : MonoBehaviour
     public Transform firePosition_S;
     public GameObject BarMagnet;
     public float power = 20.0f;
-    private int monoSLimit = 3;
     private int barLimit = 40;
     private bool up = false;
     private bool down = false;
 
-   
+
+    private float shootInterval = 0.0f;
+    private bool shootAction = false;
+
 
     private Vector3 monoposition;
 
@@ -47,28 +49,40 @@ public class FireManager_L : MonoBehaviour
         }
 
 
-        if (controller.GetPressDown(triggerButton))
+        if (controller.GetPress(triggerButton))
         {
-            monoSLimit = 3;
-            GameObject[] monoSs;
-            monoSs = GameObject.FindGameObjectsWithTag("S");
-
-            int listlen = monoSs.Length;
-
-            for (int i = 0; i < listlen; i++)
+            if (!shootAction)
             {
-                if (monoSs[i].name.Contains("Monopole"))
+                shootAction = true;
+                firemonoS();
+                GameObject monoS;
+                monoS = GameObject.FindWithTag("S");
+                if (monoS != null)
                 {
-                    monoposition = monoSs[i].transform.position;
-                    monoSs[i].SendMessage("ApplyMagneticField", monoposition);
+                    Debug.Log("monoS name" + monoS.name);
+                    if (monoS.name.Contains("Monopole"))
+                    {
+                        monoposition = monoS.transform.position;
+                        monoS.SendMessage("ApplyMagneticField", monoposition);
+                    }
+
                 }
             }
-            Debug.Log("triggered");
+            else
+            {
+                shootInterval += Time.deltaTime;
+                if (shootInterval > 0.2f)
+                {
+                    shootInterval = 0.0f;
+                    shootAction = false;
+
+                }
+            }
         }
         /*
         if (signal&&signal_R)
             fireBar();*/
-
+/*
         if (controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
         {
 
@@ -92,31 +106,26 @@ public class FireManager_L : MonoBehaviour
             up = false;
             down = false;
 
-        }
+        }*/
 
     }
 
     void firemonoS()
     {
         Debug.Log("Fired");
-        
-        if (monoSLimit != 0)
-        {
 
-            GameObject temp = pool.GetMono_S();
 
-            temp.transform.position =
-                firePosition_S.position;
+        GameObject temp = pool.GetMono_S();
 
-            temp.GetComponent<Rigidbody>().velocity =
-                firePosition_S.forward * power;
+        temp.transform.position =
+            firePosition_S.position;
 
-            monoSLimit -= 1;
+        temp.GetComponent<Rigidbody>().velocity =
+            firePosition_S.forward * power;
 
-            Debug.Log(monoSLimit);
-        }
+
     }
-
+/*
     void fireMField_S()
     {
         GameObject temp = pool.GetMField_S();
@@ -124,7 +133,7 @@ public class FireManager_L : MonoBehaviour
         temp.transform.position = firePosition_S.position;
 
         temp.SendMessage("fly", firePosition_S.forward);
-    }
+    }*/
 
     /*
     void fireBar()

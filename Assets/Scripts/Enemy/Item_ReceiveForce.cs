@@ -11,9 +11,6 @@ public class Item_ReceiveForce : MonoBehaviour {
     private bool isPulledToRose;
 
     private float pulledRoseSpeed;
-    private Transform objectStuckTo;
-    private Vector3 impactPosOffset;
-    private Vector3 impactRotOffset;
     private bool isStuck;
     private bool inGage;
 
@@ -26,6 +23,8 @@ public class Item_ReceiveForce : MonoBehaviour {
         isPulledToRose = true;
         pulledRoseSpeed = param.RS_PullToRoseSpeed;
         isStuck = false;
+        numOfMono = 0;
+        monoList = new ArrayList();
 
         inGage = false;
         //barGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
@@ -34,6 +33,18 @@ public class Item_ReceiveForce : MonoBehaviour {
     void Update()
     {
         if (isPulledToRose) pulledToRose(pulledRoseSpeed);
+
+        //todo: 색을 바꿔주자!
+        //if (numOfMono == 1){
+        //    GetComponent<Renderer>().material.color = Color.cyan;
+        //}else if(numOfMono == 2)
+        //{
+        //    GetComponent<Renderer>().material.color = Color.cyan;
+        //}
+        //else
+        //{
+        //    GetComponent<Renderer>().material.color = Color.cyan;
+        //} 
     }
 
     /* -----------------------------------------------------------------------------------------------------------------------------------------*/
@@ -48,38 +59,50 @@ public class Item_ReceiveForce : MonoBehaviour {
 
     /* -----------------------------------------------------------------------------------------------------------------------------------------*/
     /* [Magnetid Force- Monopole, magnetic bar] */
+
+    int numOfMono = 0;
+    ArrayList monoList; 
+
     public void Follow(float[] parameters)
     {
-        isPulledToRose = false;
-        Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
-        Vector3 r = target - gameObject.transform.position;
-
-        //todo: 건선쓰 일단 하나면 끌려간다고 생각하고 여기다가 해줄랭...?
-        if (!inGage && parameters[4] > 0)
+        if (!monoList.Contains(parameters[5]))
         {
-            if (comboSlider.currentGage < 10)
+            numOfMono++;
+            monoList.Add(parameters[5]);
+            Debug.Log("numOfMono:" + numOfMono);
+        }
+        if(numOfMono>3){ 
+            isPulledToRose = false;
+            Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
+            Vector3 r = target - gameObject.transform.position;
+            
+            if (!inGage && parameters[4] < 0)
             {
-                comboSlider.currentGage++;
-                inGage = true;
+                if (comboSlider.currentGage < 10)
+                {
+                    comboSlider.currentGage++;
+                    inGage = true;
+                }
             }
-        }
-        else
-        {
-            Debug.Log("I'm not counting");
-        }
+            else
+            {
+                Debug.Log("I'm not counting");
+            }
 
-        //Coulomb force
-        if (r.magnitude > param.MF_StopForcingRange)
-        {
-            rb.AddForce(param.MF_CFfollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+            //Coulomb force
+            if (r.magnitude > param.MF_StopForcingRange)
+            {
+                rb.AddForce(param.MF_CFfollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+            }
+            //When two magnets are very close: attach 
+            rb.velocity = 10 * r.normalized;
         }
-        //When two magnets are very close: attach 
-        rb.velocity = 10 * r.normalized;
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
-        isStuck = true;
+    {   
+        if(numOfMono>3) 
+            isStuck = true;
     }
 
     public void StuckToPW(float[] parameters)
@@ -99,18 +122,5 @@ public class Item_ReceiveForce : MonoBehaviour {
 
         rb.AddForce(param.MF_CFawayC * param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3));
     }
-
-    /* -----------------------------------------------------------------------------------------------------------------------------------------*/
-    /* For the flat magnetic field */
-    void Slowdown()
-    {
-        pulledRoseSpeed = pulledRoseSpeed * param.PW_FieldSlownFactor;
-    }
-
-    void Fastenup()
-    {
-        pulledRoseSpeed = pulledRoseSpeed * param.PW_FieldFastenFactor;
-    }
-
 
 }

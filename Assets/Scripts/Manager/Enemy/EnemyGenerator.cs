@@ -8,93 +8,55 @@ public class EnemyGenerator: MonoBehaviour {
     //About Instantiating enemies
 
     Param param;
-
-    private bool isWorking = true;
-
     public EnemyPool pool;
-
 	public Transform FirePositionTransform;
     
-    private float shootingTimeInterval = 0.0f;
-    private float shootingTimer = 0.0f;
-    private float shootingItemEnemyTimer = 0.0f;
 
     void Start()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
     }
 
-    void Update()
-    {
-        if (isWorking)
-        {
-            if (shootingTimer >= shootingTimeInterval)
-            {
-                shootingTimer = 0;
-                shootingTimeInterval = Random.Range(param.EM_shootingTimeItvMin, param.EM_shootingTimeItvMax);
-
-                Shoot();
-
-            }
-            else
-                shootingTimer += Time.deltaTime;
-
-            if (shootingItemEnemyTimer >= 3)
-            {
-                shootingItemEnemyTimer = 0;
-                ShootItemEnemy();
-
-            }
-            else
-                shootingItemEnemyTimer += Time.deltaTime;
-        }
-
-    }
-
-    public void StartWorking()
-    {
-        isWorking = true;
-    }
-
-    public void StopWorking()
-    {
-        isWorking = false;
-    }
-
-    private void Shoot()
+    public void shootBasicEnemy()
     {
         int numEnemy = Random.Range(param.EM_numPerOnceMin, param.EM_numPerOnceMax);
+        Debug.Log(numEnemy);
 
         for(int i=0; i<numEnemy; i++)
         {
             GameObject temp = pool.GetObject();
-
-            //set position
-            temp.transform.position = FirePositionTransform.position;
-
-            Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-1.0f, 5.0f), 0);
-            //Vector3 initialVelocity = new Vector3(0.1f, -0.5f, -0.5f);
-            initialVelocity.Normalize();
-
-            temp.GetComponent<Rigidbody>().velocity = initialVelocity;
-            temp.transform.rotation = new Quaternion(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f),0);
+            initializeState(temp);
         }
     }
 
-    private void ShootItemEnemy()
+    public void shootItemEnemy()
     {
         GameObject temp = pool.GetItemObject();
+        initializeState(temp);
+    }
 
-        //set position
-        temp.transform.position = FirePositionTransform.position;
+    public void shootSphereEnemy(){
+        GameObject temp = pool.GetSphereEnemy();
+        initializeState(temp);
+    }
 
-        //set scale
+    public void shootWormEnemy(){
+        GameObject temp = pool.GetWormEnemy();
+        initializeState(temp);
+    }
+
+    private GameObject initializeState(GameObject enemy){
+
+        //position
+        enemy.transform.position = FirePositionTransform.position;
+        //velocity
         Vector3 initialVelocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-1.0f, 5.0f), 0);
-        //Vector3 initialVelocity = new Vector3(0.1f, -0.5f, -0.5f);
-        initialVelocity.Normalize();
+        initialVelocity.Normalize(); 
+        enemy.GetComponent<Rigidbody>().velocity = initialVelocity;
+        //rotation
+        enemy.transform.rotation = new Quaternion(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), 0);
+        return enemy;
 
-        temp.GetComponent<Rigidbody>().velocity = initialVelocity;
-        temp.transform.rotation = new Quaternion(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), 0);
     }
 
 }
