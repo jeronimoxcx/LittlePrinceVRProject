@@ -21,30 +21,19 @@ public class Item_ReceiveForce : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody>();
 
         isPulledToRose = true;
-        pulledRoseSpeed = param.RS_PullToRoseSpeed;
+        pulledRoseSpeed = 7.5f;
         isStuck = false;
         numOfMono = 0;
         monoList = new ArrayList();
 
         inGage = false;
         //barGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
+
     }
 
     void Update()
     {
         if (isPulledToRose) pulledToRose(pulledRoseSpeed);
-
-        //todo: 색을 바꿔주자!
-        //if (numOfMono == 1){
-        //    GetComponent<Renderer>().material.color = Color.cyan;
-        //}else if(numOfMono == 2)
-        //{
-        //    GetComponent<Renderer>().material.color = Color.cyan;
-        //}
-        //else
-        //{
-        //    GetComponent<Renderer>().material.color = Color.cyan;
-        //} 
     }
 
     /* -----------------------------------------------------------------------------------------------------------------------------------------*/
@@ -65,45 +54,58 @@ public class Item_ReceiveForce : MonoBehaviour {
 
     public void Follow(float[] parameters)
     {
-        if (!monoList.Contains(parameters[5]))
+        if(parameters[4] == param.barMagnetIndex)
         {
-            numOfMono++;
-            monoList.Add(parameters[5]);
-            //Debug.Log("numOfMono:" + numOfMono);
+            receiveForce(parameters);
         }
-        if(numOfMono>3){ 
-            isPulledToRose = false;
-            Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
-            Vector3 r = target - gameObject.transform.position;
-            
-            if (!inGage && parameters[4]==1)
+        else
+        {
+            if (!monoList.Contains(parameters[5]))
             {
-                Debug.Log("maxGage " + comboSlider.maxGage);
-                if (comboSlider.currentGage < comboSlider.maxGage)
-                {
-                    
-                    comboSlider.currentGage++;
-                    inGage = true;
-                    Debug.Log("currentGage " + comboSlider.currentGage);
+                    numOfMono++;
+                    monoList.Add(parameters[5]);
+                    //Debug.Log("numOfMono:" + numOfMono);
+                }
+                if(numOfMono>3){
+                    receiveForce(parameters);
                 }
             }
-            else
-            {
-                Debug.Log("I'm not counting");
-            }
+    }
 
-            //Coulomb force
-            if (r.magnitude > param.MF_StopForcingRange)
+    private void receiveForce(float[] parameters)
+    {
+        isPulledToRose = false;
+        Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
+        Vector3 r = target - gameObject.transform.position;
+
+        if (!inGage && parameters[4] == 1)
+        {
+            Debug.Log("maxGage " + comboSlider.maxGage);
+            if (comboSlider.currentGage < comboSlider.maxGage)
             {
-                rb.AddForce(param.MF_CFfollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+
+                comboSlider.currentGage++;
+                inGage = true;
+                Debug.Log("currentGage " + comboSlider.currentGage);
             }
-            //When two magnets are very close: attach 
-            rb.velocity = 10 * r.normalized;
         }
+        else
+        {
+            //Debug.Log("I'm not counting");
+        }
+
+        //Coulomb force
+        if (r.magnitude > param.MF_StopForcingRange)
+        {
+            rb.AddForce(param.MF_CFfollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+        }
+        //When two magnets are very close: attach 
+        rb.velocity = 10 * r.normalized;
     }
 
     private void OnCollisionEnter(Collision collision)
     {   
+
         if(numOfMono>3) 
             isStuck = true;
     }

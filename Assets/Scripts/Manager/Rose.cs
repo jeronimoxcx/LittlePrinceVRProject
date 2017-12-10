@@ -19,7 +19,7 @@ public class Rose : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameover) return;
+        
         if (collision.gameObject.name.Contains("Enemy"))
         {
             Instantiate(particleEffect, collision.contacts[0].point, Quaternion.identity);
@@ -29,8 +29,7 @@ public class Rose : MonoBehaviour {
             //Debug.Log(collision.gameObject.name);
             healthPoint--;
         }
-        
-       
+
         if (healthPoint <= 0)
         {
             roseHp.text = "I'm Dead you moron!";

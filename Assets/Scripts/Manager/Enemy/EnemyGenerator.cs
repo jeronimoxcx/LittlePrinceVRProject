@@ -9,10 +9,10 @@ public class EnemyGenerator : MonoBehaviour
     //About Instantiating enemies
 
     Param param;
+    public GameObject rose;
     public EnemyPool pool;
     public Transform FirePositionTransform;
     public bool isWorking;
-
 
     void Start()
     {
@@ -21,30 +21,39 @@ public class EnemyGenerator : MonoBehaviour
 
     public void shootBasicEnemy()
     {
-        int numEnemy = Random.Range(param.EM_numPerOnceMin, param.EM_numPerOnceMax);
-        Debug.Log(numEnemy);
-
-        for (int i = 0; i < numEnemy; i++)
-        {
             GameObject temp = pool.GetObject();
             initializeState(temp);
-        }
     }
+
 
     public void shootItemEnemy()
     {
         GameObject temp = pool.GetItemObject();
-        initializeState(temp);
+        initializeStateParabolic(temp);
     }
 
     public void shootSphereEnemy()
     {
         GameObject temp = pool.GetSphereEnemy();
-        initializeState(temp);
+        initializeStateParabolic(temp);
     }
 
-
     private GameObject initializeState(GameObject enemy)
+    {
+        //position
+        enemy.transform.position = FirePositionTransform.position;
+        //velocity
+        Vector3 target = rose.transform.position;
+        Vector3 initialVelocity = target - enemy.transform.position;
+        initialVelocity.Normalize();
+        enemy.GetComponent<Rigidbody>().velocity = initialVelocity;
+        //rotation
+        
+        return enemy;
+
+    }
+
+    private GameObject initializeStateParabolic(GameObject enemy)
     {
 
         //position

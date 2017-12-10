@@ -36,7 +36,6 @@ public class restartGame : MonoBehaviour {
         comboSlider.currentGage = 0;
         Rose.gameover = false;
         LevelManager.GetComponent<LVM_LV1>().enabled = true;
-        //LevelManager.SetActive(true);
 
     }
 

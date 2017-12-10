@@ -51,7 +51,7 @@ public class comboSlider : MonoBehaviour {
 
         signal_R = controllerRight.GetComponent<FireManager_R>().signal;
         signal_L = controllerLeft.GetComponent<FireManager_L>().signal;
-        Debug.Log("current Gage in comboSlider is " + currentGage);
+        //Debug.Log("current Gage in comboSlider is " + currentGage);
         if (useBar && signal_R && signal_L)
         {
             if (!alreadyIn)

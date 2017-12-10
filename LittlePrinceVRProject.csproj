@@ -251,6 +251,7 @@
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\ViewAnimation.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\ViewTypeData.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\VirtualizedItems.cs" />
+    <Compile Include="Assets\OpeningScene\OpeningScene.cs" />
     <Compile Include="Assets\OutlineEffect\Demo\MaterialSwitcher.cs" />
     <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
     <Compile Include="Assets\OutlineEffect\Demo\Rotate.cs" />
@@ -294,6 +295,7 @@
     <Compile Include="Assets\Scripts\Weapons\ApplyMagneticForce.cs" />
     <Compile Include="Assets\Scripts\Weapons\BarMagnet.cs" />
     <Compile Include="Assets\Scripts\Weapons\M_field.cs" />
+    <Compile Include="Assets\startOptions2.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />

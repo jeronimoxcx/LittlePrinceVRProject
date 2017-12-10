@@ -8,7 +8,9 @@ public class Boss : MonoBehaviour {
     Param param;
     private Vector3 rosePose;
     private Vector3 bossInitialPose;
-    private Vector3 pathPerOnce; 
+    private Vector3 pathPerOnce;
+
+    public GameObject particleEffect;
 
     private bool isWorking = false;
 
@@ -24,7 +26,7 @@ public class Boss : MonoBehaviour {
     private const int MODE_PURPLE = 3;
 
     public GameObject BarSlider;
-    public Slider bossHp;
+    public static Slider bossHp;
     public int damageLevel = 50;
 
     public bool bossDefeated = false;
@@ -49,7 +51,8 @@ public class Boss : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        Instantiate(particleEffect, collision.contacts[0].point, Quaternion.identity);
+
         if (curMODE == MODE_RED)
         {
             if (collision.collider.tag == "S")
@@ -84,6 +87,7 @@ public class Boss : MonoBehaviour {
             BarSlider.SetActive(false);
 
         }
+        collision.collider.gameObject.SetActive(false);
     }
 
     void Update () {
@@ -119,8 +123,10 @@ public class Boss : MonoBehaviour {
     }
 
     public void oneStepBack()
-    {
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - pathPerOnce.z);
+    {   
+        Vector3 newPose = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - pathPerOnce.z);
+        if (newPose.z < bossInitialPose.z)
+            gameObject.transform.position = newPose;
         gameObject.transform.LookAt(rosePose);
     }
 

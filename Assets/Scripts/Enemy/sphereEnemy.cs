@@ -45,14 +45,61 @@ public class sphereEnemy : MonoBehaviour {
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == gameObject.tag && collision.collider.name.Contains("pw"))
+        Debug.Log("OncollisionEnter");
+        
+        if (collision.collider.tag == gameObject.tag && collision.collider.name.Contains("Monopole"))
         {
             foreach (Transform child in transform)
             {   
                 child.gameObject.AddComponent<SphereCollider>();
                 child.gameObject.AddComponent<Rigidbody>().useGravity = false;
+                
                 child.gameObject.GetComponent<ReceiveForce>().enabled = true;
             }
         }
     }
+
+
+    public void Follow(float[] parameters)
+    {
+        if (parameters[4] == param.barMagnetIndex)
+        {
+            receiveForce(parameters);
+        }
+    }
+
+    private void receiveForce(float[] parameters)
+    {
+        isPulledToRose = false;
+        Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
+        Vector3 r = target - gameObject.transform.position;
+
+        if (!inGage && parameters[4] == 1)
+        {
+            Debug.Log("maxGage " + comboSlider.maxGage);
+            if (comboSlider.currentGage < comboSlider.maxGage)
+            {
+
+                comboSlider.currentGage++;
+                inGage = true;
+                Debug.Log("currentGage " + comboSlider.currentGage);
+            }
+        }
+        else
+        {
+            //Debug.Log("I'm not counting");
+        }
+
+        //Coulomb force
+        if (r.magnitude > param.MF_StopForcingRange)
+        {
+            rb.AddForce(param.MF_CFfollowC * (param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3)));
+        }
+        //When two magnets are very close: attach 
+        rb.velocity = 10 * r.normalized;
+    }
+
+    public void Away(float[] parameters) { return; }
+    public void StuckToPW(float[] parameters) { return; }
+
 }
