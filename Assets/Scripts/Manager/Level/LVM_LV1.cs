@@ -13,8 +13,21 @@ public class LVM_LV1 : MonoBehaviour {
     public EnemyGenerator enemyGeneratorRed;
     public EnemyGenerator enemyGeneratorBlue;
     public GameObject rose;
+    public GameObject enemyGeneratorRed;
+    public GameObject enemyGeneratorBlue;
     public GameObject levelScroll;
     public TextMesh levelText;
+    public GameObject gameStatusCanvas;
+    public Text status;
+    public GameObject nextLevelButton;
+    public GameObject tryAgainButton;
+
+    public GameObject controllerRight;
+    public GameObject controllerLeft;
+    public GameObject L_Hand;
+    public GameObject R_Hand;
+
+
 
     private float timer=0.0f;
 
@@ -23,11 +36,48 @@ public class LVM_LV1 : MonoBehaviour {
         param = GameObject.Find("Param").GetComponent<Param>();
         levelScroll = GameObject.Find("Scroll");
         levelText = GameObject.Find("leveltext").GetComponent<TextMesh>();
+        //gameStatusCanvas = GameObject.Find("GameStatusCanvas");
+        nextLevelButton = GameObject.Find("NextLevel");
+        tryAgainButton = GameObject.Find("TryAgain");
+
+        gameStatusCanvas.SetActive(false);
+        controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
+
+    }
+
+    private void OnEnable()
+    {
+        param = GameObject.Find("Param").GetComponent<Param>();
+        levelScroll = GameObject.Find("Scroll");
+        levelText = GameObject.Find("leveltext").GetComponent<TextMesh>();
+        gameStatusCanvas = GameObject.Find("GameStatusCanvas");
+        nextLevelButton = GameObject.Find("NextLevel");
+        tryAgainButton = GameObject.Find("TryAgain");
+
+        gameStatusCanvas.SetActive(false);
+        controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
     }
 
 
     void Update () {
+        if (Rose.gameover)
+        {
+            controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = true;
+            controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
+            controllerLeft.GetComponent<FireManager_L>().enabled = false;
+            controllerRight.GetComponent<FireManager_R>().enabled = false;
+            L_Hand.SetActive(false);
+            R_Hand.SetActive(false);
+            enemyGeneratorRed.SendMessage("StopWorking");
+            enemyGeneratorBlue.SendMessage("StopWorking");
 
+            gameStatusCanvas.SetActive(true);
+            status.text = "Game Over";
+            nextLevelButton.SetActive(false);
+
+        }
         if (timer < param.LV_showTextTime)
         {
             timer += Time.deltaTime;
@@ -42,6 +92,7 @@ public class LVM_LV1 : MonoBehaviour {
             shootBasicEnemyS(1.0f);
             shootItemEnemyN(3.0f);
             shootItemEnemyS(3.0f);
+            
         }
         //MODE2: spaceships are moving, shoot only one type per each.
         else if (timer < param.LV_showTextTime + 20)
@@ -54,6 +105,14 @@ public class LVM_LV1 : MonoBehaviour {
             shootItemEnemyN(3.0f);
             shootItemEnemyS(3.0f);
 
+            if (onceFlag == 1)
+            {
+                onceFlag = 0;
+                levelScroll.SetActive(false);
+                levelText.text = "";
+                enemyGeneratorRed.SendMessage("StartWorking");
+                enemyGeneratorBlue.SendMessage("StartWorking");
+            }
         }
         ////MODE3: spaceships are moving, faster
         //else if (timer < param.LV_showTextTime + 30)

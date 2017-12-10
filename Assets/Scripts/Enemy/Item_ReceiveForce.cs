@@ -10,6 +10,8 @@ public class Item_ReceiveForce : MonoBehaviour {
     private Vector3 rose;
     private bool isPulledToRose;
 
+
+
     private float pulledRoseSpeed;
     private bool isStuck;
     private bool inGage;
@@ -87,6 +89,18 @@ public class Item_ReceiveForce : MonoBehaviour {
             else
             {
                 Debug.Log("I'm not counting");
+        isPulledToRose = false;
+        Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
+        Vector3 r = target - gameObject.transform.position;
+
+        //todo: 지금 현재는 monopole이기만하면 끌려감!
+        if (!inGage && parameters[4] == 1)
+        {
+            if (comboSlider.currentGage < comboSlider.maxGage)
+            {
+                comboSlider.currentGage++;
+                inGage = true;
+                Debug.Log("currentGage" + comboSlider.currentGage);
             }
 
             //Coulomb force

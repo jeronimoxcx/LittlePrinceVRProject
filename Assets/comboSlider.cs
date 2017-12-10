@@ -11,8 +11,6 @@ public class comboSlider : MonoBehaviour {
     public Transform firePosition_R;
     public GameObject BarMagnet;
     public float power = 20.0f;
-    private int monoSLimit = 3;
-    private int barLimit = 40;
 
     public bool signal_R;
     public bool signal_L;
@@ -20,9 +18,9 @@ public class comboSlider : MonoBehaviour {
     public GameObject controllerRight;
 
     //combo slider
-    public TextMesh comboText;
-    public Slider BarGageSlider;
-    public int maxGage = 10;
+    public GameObject BarSliderPanel;
+    public GameObject[] BarIcons;
+    public static int maxGage = 5;
     public static int currentGage = 0;
 
     private Vector3 firePosition_M;
@@ -31,13 +29,14 @@ public class comboSlider : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        BarGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
-        BarGageSlider.value = currentGage;
-        comboText.text = "Combo";
-
-
-        Debug.Log("Left "+controllerLeft.name);
-
+        BarSliderPanel = GameObject.Find("BarSliderPanel");
+        BarIcons = new GameObject[maxGage];
+        for(int i = 0; i < maxGage; i++)
+        {
+            BarIcons[i] = GameObject.Find("BarIcon"+i);
+            BarIcons[i].SetActive(false);
+        }
+        BarSliderPanel.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -51,25 +50,33 @@ public class comboSlider : MonoBehaviour {
 
         signal_R = controllerRight.GetComponent<FireManager_R>().signal;
         signal_L = controllerLeft.GetComponent<FireManager_L>().signal;
-        Debug.Log("currentGage" + currentGage);
+
         if (useBar && signal_R && signal_L)
         {
             if (!alreadyIn)
             {
                 alreadyIn = true;
                 fireBar();
-                currentGage = 0;
+                BarIcons[currentGage].SetActive(false);
             }
         }
         else
             alreadyIn = false;
-        BarGageSlider.value = currentGage;
+        
 
-        if (currentGage >= maxGage)
+        if (currentGage >0)
         {
-            
-            comboText.text = "Use Bar Magnet!";
+            BarSliderPanel.SetActive(true);
+            for(int i = 0; i < currentGage; i++)
+            {
+                BarIcons[i].SetActive(true);
+            }
             useBar = true;
+        }
+        else
+        {
+            BarSliderPanel.SetActive(false);
+            useBar = false;
         }
         
 
@@ -79,7 +86,7 @@ public class comboSlider : MonoBehaviour {
     
     void fireBar()
     {
-        if (barLimit > 0)
+        if (currentGage > 0)
         {
             
             
@@ -89,7 +96,7 @@ public class comboSlider : MonoBehaviour {
 
             temp.SendMessage("fly", firePosition_L.forward);
 
-            barLimit -= 1;
+            currentGage -= 1;
         }
     }
 }

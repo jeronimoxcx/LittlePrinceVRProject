@@ -63,7 +63,9 @@ public class ApplyMagneticForce : MonoBehaviour {
 
                     if (hitColliders[i].tag != gameObject.tag)
                     {
+
                         hitColliders[i].SendMessage("Follow", parameters);                 
+
                     }
                     else if (hitColliders[i].tag == gameObject.tag)
                     {   

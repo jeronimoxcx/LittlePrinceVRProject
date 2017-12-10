@@ -59,7 +59,7 @@ public class ReceiveForce : MonoBehaviour {
         isPulledToRose = false;
         Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
         Vector3 r = target - gameObject.transform.position;
-
+        /*
         if (!inGage && parameters[4] > 0)
         {
             if (comboSlider.currentGage < 10)
@@ -71,7 +71,7 @@ public class ReceiveForce : MonoBehaviour {
         {
             Debug.Log("I'm not counting");
         }
-
+        */
         //Coulomb force
         if (r.magnitude > param.MF_StopForcingRange)
         {

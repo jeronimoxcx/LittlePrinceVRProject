@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Rose : MonoBehaviour {
     public TextMesh roseHp; // = new TextMesh();
-    public int healthPoint = 20;
+    public int healthPoint;
     public GameObject particleEffect;
 
-    public bool gameover = false;
+    public static bool gameover = false;
 
     private void Start()
     {
@@ -19,14 +19,17 @@ public class Rose : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        Instantiate(particleEffect,collision.contacts[0].point, Quaternion.identity);
-
-        collision.gameObject.SetActive(false);
-
-        //Debug.Log(collision.gameObject.name);
-        healthPoint--;
         if (gameover) return;
+        if (collision.gameObject.name.Contains("Enemy"))
+        {
+            Instantiate(particleEffect, collision.contacts[0].point, Quaternion.identity);
+
+            collision.gameObject.SetActive(false);
+
+            //Debug.Log(collision.gameObject.name);
+            healthPoint--;
+        }
+        
        
         if (healthPoint <= 0)
         {
