@@ -16,7 +16,9 @@ public class ReceiveForce : MonoBehaviour {
     private Vector3 impactRotOffset;
     private bool isStuck;
     private bool inGage;
-    
+
+    public GameObject GlowEffect;
+
     void OnEnable()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
@@ -29,6 +31,8 @@ public class ReceiveForce : MonoBehaviour {
 
         inGage = false;
         //barGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
+        GlowEffect = gameObject.transform.Find("Glow").gameObject;
+        GlowEffect.SetActive(false);
     }
 
     void Update()
@@ -50,22 +54,14 @@ public class ReceiveForce : MonoBehaviour {
     /* [Magnetid Force- Monopole, magnetic bar] */
     public void Follow(float[] parameters)
     {
+        Glow();
+
         isPulledToRose = false;
         Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
         Vector3 r = target - gameObject.transform.position;
-        /*
-        if (!inGage && parameters[4] > 0)
-        {
-            if (comboSlider.currentGage < 10)
-            {
-                comboSlider.currentGage++;
-                inGage = true;
-            }
-        }else
-        {
-            Debug.Log("I'm not counting");
-        }
-        */
+
+        
+
         //Coulomb force
         if (r.magnitude > param.MF_StopForcingRange)
         {
@@ -86,7 +82,7 @@ public class ReceiveForce : MonoBehaviour {
         {
             Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
             Vector3 r = target - gameObject.transform.position;
-            rb.velocity = 15 * r.normalized;
+            rb.velocity = 10 * r.normalized;
         }
     }
 
@@ -110,5 +106,9 @@ public class ReceiveForce : MonoBehaviour {
         pulledRoseSpeed = pulledRoseSpeed * param.PW_FieldFastenFactor;
     }
 
+    void Glow()
+    {
+        GlowEffect.SetActive(true);
+    }
 
 }

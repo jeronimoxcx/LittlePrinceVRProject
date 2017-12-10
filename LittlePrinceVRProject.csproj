@@ -262,6 +262,7 @@
     <Compile Include="Assets\Scripts\Enemy\Boss.cs" />
     <Compile Include="Assets\Scripts\Enemy\Item_ReceiveForce.cs" />
     <Compile Include="Assets\Scripts\Enemy\ReceiveForce.cs" />
+    <Compile Include="Assets\Scripts\Enemy\sphereEnemy.cs" />
     <Compile Include="Assets\Scripts\Manager\Collect.cs" />
     <Compile Include="Assets\Scripts\Manager\Enemy\EnemyGenerator.cs" />
     <Compile Include="Assets\Scripts\Manager\Enemy\EnemyPool.cs" />

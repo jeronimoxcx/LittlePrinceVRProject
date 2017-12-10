@@ -33,19 +33,21 @@ public class BarMagnet : MonoBehaviour {
         hitColliders = Physics.OverlapSphere(gameObject.transform.position, param.MF_FindRange);
 
         //barS, barN으로 바꾸어주어야함
-        float[] parametersBarS = new float[5];
+        float[] parametersBarS = new float[6];
         parametersBarS[0] = bar_S.transform.position.x;
         parametersBarS[1] = bar_S.transform.position.y;
         parametersBarS[2] = bar_S.transform.position.z;
         parametersBarS[3] = param.MF_ChargeBar;
         parametersBarS[4] = param.barMagnetIndex;
+        parametersBarS[5] = gameObject.GetInstanceID();
 
-        float[] parametersBarN = new float[5];
+        float[] parametersBarN = new float[6];
         parametersBarN[0] = bar_N.transform.position.x;
         parametersBarN[1] = bar_N.transform.position.y;
         parametersBarN[2] = bar_N.transform.position.z;
         parametersBarN[3] = param.MF_ChargeBar;
         parametersBarN[4] = param.barMagnetIndex;
+        parametersBarN[5] = gameObject.GetInstanceID();
 
         for (int i = 0; i < hitColliders.Length; i++)
         {

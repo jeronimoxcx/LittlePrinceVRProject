@@ -282,6 +282,7 @@ Assets/restartGame.cs
 Assets/Scripts/Enemy/Boss.cs
 Assets/Scripts/Enemy/Item_ReceiveForce.cs
 Assets/Scripts/Enemy/ReceiveForce.cs
+Assets/Scripts/Enemy/sphereEnemy.cs
 Assets/Scripts/Manager/Collect.cs
 Assets/Scripts/Manager/Enemy/EnemyGenerator.cs
 Assets/Scripts/Manager/Enemy/EnemyPool.cs

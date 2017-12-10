@@ -31,12 +31,15 @@ public class comboSlider : MonoBehaviour {
     void Start () {
         BarSliderPanel = GameObject.Find("BarSliderPanel");
         BarIcons = new GameObject[maxGage];
+
         for(int i = 0; i < maxGage; i++)
         {
             BarIcons[i] = GameObject.Find("BarIcon"+i);
             BarIcons[i].SetActive(false);
         }
+
         BarSliderPanel.SetActive(false);
+        
     }
 	
 	// Update is called once per frame
@@ -44,13 +47,11 @@ public class comboSlider : MonoBehaviour {
         Vector3 pos_start = new Vector3(firePosition_L.position.x, firePosition_L.position.y, firePosition_L.position.z);
         Vector3 pos_end = new Vector3(firePosition_R.position.x, firePosition_R.position.y, firePosition_R.position.z);
         firePosition_M = Vector3.Lerp(pos_start, pos_end, 0.5f);
-
-
         
 
         signal_R = controllerRight.GetComponent<FireManager_R>().signal;
         signal_L = controllerLeft.GetComponent<FireManager_L>().signal;
-
+        Debug.Log("current Gage in comboSlider is " + currentGage);
         if (useBar && signal_R && signal_L)
         {
             if (!alreadyIn)

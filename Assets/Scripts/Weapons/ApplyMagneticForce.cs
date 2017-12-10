@@ -10,6 +10,7 @@ public class ApplyMagneticForce : MonoBehaviour {
     private int magAble = 1; //자력발동 눌렀을 때 한번만 발동되게.
     private bool isExerting = false;
     private Collider[] hitColliders;
+    private GameObject itemEnemy;
     private int enemyCounter = 0;
 
 
@@ -19,6 +20,7 @@ public class ApplyMagneticForce : MonoBehaviour {
         param = GameObject.Find("Param").GetComponent<Param>();
         magAble = 1; 
         isExerting = false;
+        itemEnemy = null;
         enemyCounter = 0;
 
         //BarGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
@@ -28,8 +30,10 @@ public class ApplyMagneticForce : MonoBehaviour {
 
     void Update()
     {
-        ExertMagneticForce();
-        KeepStuck();
+            ExertMagneticForce();
+            KeepStuck();
+
+
         //if (isExerting)
         //    ExertMagneticForce();
     }
@@ -46,7 +50,7 @@ public class ApplyMagneticForce : MonoBehaviour {
 
     void ExertMagneticForce()
     {
-        if (enemyCounter < param.PW_Mono_NumOfEnemyOnce)
+        if (enemyCounter < param.PW_Mono_NumOfEnemyOnce )
         {
             //find colliders in the proper range
             hitColliders = Physics.OverlapSphere(gameObject.transform.position, param.MF_FindRange);
@@ -59,9 +63,7 @@ public class ApplyMagneticForce : MonoBehaviour {
 
                     if (hitColliders[i].tag != gameObject.tag)
                     {
-                        hitColliders[i].SendMessage("Follow", parameters);
-
-                       
+                        hitColliders[i].SendMessage("Follow", parameters);                 
                     }
                     else if (hitColliders[i].tag == gameObject.tag)
                     {   
@@ -78,7 +80,7 @@ public class ApplyMagneticForce : MonoBehaviour {
     private void KeepStuck()
     {
         hitColliders = Physics.OverlapSphere(gameObject.transform.position, param.MF_FindRange/2);
-        for (int i = 0; i < hitColliders.Length; i++)
+        for (int i = 0; i < hitColliders.Length; i++) 
         {
             if (hitColliders[i].name.Contains("Enemy")) { 
                 float[] parameters = setParams();
@@ -92,12 +94,13 @@ public class ApplyMagneticForce : MonoBehaviour {
 
     private float[] setParams()
     {
-        float[] parameters = new float[5];
+        float[] parameters = new float[6];
         parameters[0] = gameObject.transform.position.x;
         parameters[1] = gameObject.transform.position.y;
         parameters[2] = gameObject.transform.position.z;
         parameters[3] = param.MF_ChargeMono;
         parameters[4] = param.monopoleIndex;
+        parameters[5] = gameObject.GetInstanceID();
 
         return parameters;
     }
