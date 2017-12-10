@@ -28,35 +28,33 @@ public class LVM_LV1 : MonoBehaviour {
 
     void Update () {
 
-        if (timer < param.LV_showTextTime+40)
+        if (timer < param.LV_showTextTime)
         {
             timer += Time.deltaTime;
-            //levelText.text = ("Level 1");
-            //shootSphereEnemyN(3);
-            shootItemEnemyS(3);
-            
-        }
-        ////MODE1: spaceships are static, shoot only one type per each.
-        //else if (timer < param.LV_showTextTime+ 10) 
-        //{   
-        //    timer += Time.deltaTime;
-        //    shootBasicEnemyN(1.0f);
-        //    shootBasicEnemyS(1.0f);
-        //    shootItemEnemyN(3.0f);
-        //    shootItemEnemyS(3.0f);
-        //}
-        ////MODE2: spaceships are moving, shoot only one type per each.
-        //else if (timer < param.LV_showTextTime + 20)
-        //{
-        //    timer += Time.deltaTime;
-        //    MoveSpaceShipRed(2.0f, 8);
-        //    MoveSpaceShipBlue(2.0f, 8);
-        //    shootBasicEnemyN(1.0f);
-        //    shootBasicEnemyS(1.0f);
-        //    shootItemEnemyN(3.0f);
-        //    shootItemEnemyS(3.0f);
+            levelText.text = ("Level 1");
 
-        //}
+        }
+        //MODE1: spaceships are static, shoot only one type per each.
+        else if (timer < param.LV_showTextTime + 10)
+        {
+            timer += Time.deltaTime;
+            shootBasicEnemyN(1.0f);
+            shootBasicEnemyS(1.0f);
+            shootItemEnemyN(3.0f);
+            shootItemEnemyS(3.0f);
+        }
+        //MODE2: spaceships are moving, shoot only one type per each.
+        else if (timer < param.LV_showTextTime + 20)
+        {
+            timer += Time.deltaTime;
+            MoveSpaceShipRed(2.0f, 8);
+            MoveSpaceShipBlue(2.0f, 8);
+            shootBasicEnemyN(1.0f);
+            shootBasicEnemyS(1.0f);
+            shootItemEnemyN(3.0f);
+            shootItemEnemyS(3.0f);
+
+        }
         ////MODE3: spaceships are moving, faster
         //else if (timer < param.LV_showTextTime + 30)
         //{
@@ -69,8 +67,6 @@ public class LVM_LV1 : MonoBehaviour {
         //    shootItemEnemyS(3.0f);
         //    shootSphereEnemyN(3.0f);
         //    shootSphereEnemyS(3.0f);
-        //    shootWormEnemyN(3.0f);
-        //    shootWormEnemyS(3.0f);
 
         //}
         ////MODE4: becoming harder
@@ -85,8 +81,6 @@ public class LVM_LV1 : MonoBehaviour {
         //    shootItemEnemyS(3.0f);
         //    shootSphereEnemyN(3.0f);
         //    shootSphereEnemyS(3.0f);
-        //    shootWormEnemyN(3.0f);
-        //    shootWormEnemyS(3.0f);
 
         //}
         else 
@@ -110,7 +104,9 @@ public class LVM_LV1 : MonoBehaviour {
 
             float randX = Random.Range(-15.0f, 15.0f);
             float randY = Random.Range(10.0f, 30.0f);
-            spaceshipRed.GetComponent<Rigidbody>().velocity = speed*(new Vector3(randX - spaceshipRed.transform.position.x, randY - spaceshipRed.transform.position.y, 0)).normalized;
+            Vector3 target = new Vector3(randX, randY, spaceshipRed.transform.position.z);
+            spaceshipRed.GetComponent<Rigidbody>().MovePosition(target);
+            //spaceshipRed.GetComponent<Rigidbody>().velocity = speed*(new Vector3(randX - spaceshipRed.transform.position.x, randY - spaceshipRed.transform.position.y, 0)).normalized;
             spaceshipRed.transform.LookAt(rose.transform.position);
         }
         else
@@ -129,8 +125,10 @@ public class LVM_LV1 : MonoBehaviour {
 
             float randX = Random.Range(-15.0f, 15.0f);
             float randY = Random.Range(10.0f, 30.0f);
-            spaceshipBlue.GetComponent<Rigidbody>().velocity = speed*(new Vector3(randX - spaceshipRed.transform.position.x, randY - spaceshipRed.transform.position.y, 0)).normalized;
-            spaceshipRed.transform.LookAt(rose.transform.position);
+            Vector3 target = new Vector3(randX, randY, spaceshipBlue.transform.position.z);
+            spaceshipBlue.GetComponent<Rigidbody>().MovePosition(target);
+            //spaceshipBlue.GetComponent<Rigidbody>().velocity = speed*(new Vector3(randX - spaceshipRed.transform.position.x, randY - spaceshipRed.transform.position.y, 0)).normalized;
+            spaceshipBlue.transform.LookAt(rose.transform.position);
         }
         else
             velChangeTimerBlue += Time.deltaTime;
@@ -242,42 +240,6 @@ public class LVM_LV1 : MonoBehaviour {
         else
         {
             sphereEtimerS += Time.deltaTime;
-        }
-    }
-
-    /* Worm Enemy ------------------------------------------------------------------------------*/
-
-    private float wormEtimerN = 0.0f;
-    private float wormEtimeItvN = 0.0f;
-
-    public void shootWormEnemyN(float timeInterval)
-    {
-        if (wormEtimerN >= wormEtimeItvN)
-        {
-            wormEtimerN = 0.0f;
-            wormEtimeItvN = Random.Range(timeInterval * 0.5f, timeInterval * 1.5f);
-            enemyGeneratorRed.shootWormEnemy();
-        }
-        else
-        {
-            wormEtimerN += Time.deltaTime;
-        }
-    }
-
-    private float wormEtimerS = 0.0f;
-    private float wormEtimeItvS = 0.0f;
-
-    public void shootWormEnemyS(float timeInterval)
-    {
-        if (wormEtimerS >= wormEtimeItvS)
-        {
-            wormEtimerS = 0.0f;
-            wormEtimeItvS = Random.Range(timeInterval * 0.5f, timeInterval * 1.5f);
-            enemyGeneratorBlue.shootWormEnemy();
-        }
-        else
-        {
-            wormEtimerS += Time.deltaTime;
         }
     }
 

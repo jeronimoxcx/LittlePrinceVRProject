@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyPool : MonoBehaviour
 {
 
-    public GameObject enemyPrefab, enemyItemPrefab, sphereEnemyPrefab, wormEnemyPrefab;
+    public GameObject enemyPrefab, enemyItemPrefab, sphereEnemyPrefab;
 
     public int poolSize;
 
-    GameObject[] enemyPool, enemyItemPool, sphereEnemyPool, wormEnemyPool;
+    GameObject[] enemyPool, enemyItemPool, sphereEnemyPool;
 
     void Start()
     {
@@ -17,7 +17,6 @@ public class EnemyPool : MonoBehaviour
         enemyPool = new GameObject[poolSize];
         enemyItemPool = new GameObject[poolSize / 2];
         sphereEnemyPool = new GameObject[poolSize / 2];
-        wormEnemyPool = new GameObject[poolSize / 2];
 
         for (int i = 0; i < poolSize; i++)
         {
@@ -33,8 +32,6 @@ public class EnemyPool : MonoBehaviour
             //sphereEnemyPool[i] = (GameObject)Instantiate(sphereEnemyPrefab);
             //sphereEnemyPool[i].SetActive(false);
 
-            wormEnemyPool[i] = (GameObject)Instantiate(wormEnemyPrefab);
-            wormEnemyPool[i].SetActive(false);
         }
 
     }
@@ -76,20 +73,8 @@ public class EnemyPool : MonoBehaviour
         //        return sphereEnemyPool[i];
         //    }
         //}
+        Debug.Log("getsphereenemy");
         return (GameObject)Instantiate(sphereEnemyPrefab);
-    }
-
-    public GameObject GetWormEnemy()
-    {
-        for (int i = 0; i < poolSize; i++)
-        {
-            if (!wormEnemyPool[i].active)
-            {
-                wormEnemyPool[i].SetActive(true);
-                return wormEnemyPool[i];
-            }
-        }
-        return null;
     }
 
 }

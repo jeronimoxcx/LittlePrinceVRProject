@@ -40,10 +40,6 @@ public class EnemyGenerator: MonoBehaviour {
         initializeState(temp);
     }
 
-    public void shootWormEnemy(){
-        GameObject temp = pool.GetWormEnemy();
-        initializeState(temp);
-    }
 
     private GameObject initializeState(GameObject enemy){
 
