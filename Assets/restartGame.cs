@@ -6,10 +6,15 @@ public class restartGame : MonoBehaviour {
 
     public GameObject LevelManager;
 
-	// Use this for initialization
-	void ReStart () {
-        LevelManager.setAcitve(false);
-        LevelManager.setActive(true);
+    private void Start()
+    {
+        LevelManager = GameObject.Find("Level Manager");
+    }
+
+    // Use this for initialization
+    void ReStart () {
+        LevelManager.SetActive(false);
+        LevelManager.SetActive(true);
 	}
 	
 	

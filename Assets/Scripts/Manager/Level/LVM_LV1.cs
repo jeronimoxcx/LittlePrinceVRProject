@@ -32,7 +32,7 @@ public class LVM_LV1 : MonoBehaviour {
         param = GameObject.Find("Param").GetComponent<Param>();
         levelScroll = GameObject.Find("Scroll");
         levelText = GameObject.Find("leveltext").GetComponent<TextMesh>();
-        gameStatusCanvas = GameObject.Find("GameStatusCanvas");
+        //gameStatusCanvas = GameObject.Find("GameStatusCanvas");
         nextLevelButton = GameObject.Find("NextLevel");
         tryAgainButton = GameObject.Find("TryAgain");
 
@@ -40,6 +40,20 @@ public class LVM_LV1 : MonoBehaviour {
         controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = false;
         controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
 
+    }
+
+    private void OnEnable()
+    {
+        param = GameObject.Find("Param").GetComponent<Param>();
+        levelScroll = GameObject.Find("Scroll");
+        levelText = GameObject.Find("leveltext").GetComponent<TextMesh>();
+        gameStatusCanvas = GameObject.Find("GameStatusCanvas");
+        nextLevelButton = GameObject.Find("NextLevel");
+        tryAgainButton = GameObject.Find("TryAgain");
+
+        gameStatusCanvas.SetActive(false);
+        controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
     }
 
     void Update () {
