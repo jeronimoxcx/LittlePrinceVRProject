@@ -8,11 +8,16 @@ public class LVM_LV1 : MonoBehaviour {
 
     private Param param;
 
+<<<<<<< HEAD
     public GameObject spaceshipRed;
     public GameObject spaceshipBlue;
     public EnemyGenerator enemyGeneratorRed;
     public EnemyGenerator enemyGeneratorBlue;
     public GameObject rose;
+=======
+    public GameObject enemyGeneratorRed;
+    public GameObject enemyGeneratorBlue;
+>>>>>>> ef133824dc71e00bc1cc3a786d23f3d31463d6ae
     public GameObject levelScroll;
     public TextMesh levelText;
 
@@ -32,6 +37,7 @@ public class LVM_LV1 : MonoBehaviour {
         {
             timer += Time.deltaTime;
             levelText.text = ("Level 1");
+<<<<<<< HEAD
 
         }
         //MODE1: spaceships are static, shoot only one type per each.
@@ -42,6 +48,9 @@ public class LVM_LV1 : MonoBehaviour {
             shootBasicEnemyS(1.0f);
             shootItemEnemyN(3.0f);
             shootItemEnemyS(3.0f);
+=======
+            
+>>>>>>> ef133824dc71e00bc1cc3a786d23f3d31463d6ae
         }
         //MODE2: spaceships are moving, shoot only one type per each.
         else if (timer < param.LV_showTextTime + 20)
@@ -54,6 +63,17 @@ public class LVM_LV1 : MonoBehaviour {
             shootItemEnemyN(3.0f);
             shootItemEnemyS(3.0f);
 
+<<<<<<< HEAD
+=======
+            if (onceFlag == 1)
+            {
+                onceFlag = 0;
+                levelScroll.SetActive(false);
+                levelText.text = "";
+                enemyGeneratorRed.SendMessage("StartWorking");
+                enemyGeneratorBlue.SendMessage("StartWorking");
+            }
+>>>>>>> ef133824dc71e00bc1cc3a786d23f3d31463d6ae
         }
         ////MODE3: spaceships are moving, faster
         //else if (timer < param.LV_showTextTime + 30)
