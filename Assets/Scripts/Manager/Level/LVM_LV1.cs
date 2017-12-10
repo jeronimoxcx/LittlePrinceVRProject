@@ -29,20 +29,11 @@ public class LVM_LV1 : MonoBehaviour {
 
     private void Start()
     {
-        param = GameObject.Find("Param").GetComponent<Param>();
-        levelScroll = GameObject.Find("Scroll");
-        levelText = GameObject.Find("leveltext").GetComponent<TextMesh>();
-        //gameStatusCanvas = GameObject.Find("GameStatusCanvas");
-        nextLevelButton = GameObject.Find("NextLevel");
-        tryAgainButton = GameObject.Find("TryAgain");
-
-        gameStatusCanvas.SetActive(false);
-        controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = false;
-        controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = false;
+        resetGame();
 
     }
 
-    private void OnEnable()
+    public void resetGame()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
         levelScroll = GameObject.Find("Scroll");

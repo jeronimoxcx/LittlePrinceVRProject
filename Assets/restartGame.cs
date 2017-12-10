@@ -13,8 +13,8 @@ public class restartGame : MonoBehaviour {
 
     // Use this for initialization
     void ReStart () {
-        LevelManager.SetActive(false);
-        LevelManager.SetActive(true);
+        LevelManager.GetComponent<LVM_LV1>();
+        
 	}
 	
 	
