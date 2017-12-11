@@ -94,6 +94,25 @@ public class LVM_LV3 : MonoBehaviour {
             return;
 
         }
+        else if (Boss.bossHp.value <= 0)
+        {
+            boss.SetActive(false);
+            controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = true;
+            controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
+            controllerLeft.GetComponent<VRUIInput>().enabled = true;
+            controllerRight.GetComponent<VRUIInput>().enabled = true;
+            controllerLeft.GetComponent<FireManager_L>().enabled = false;
+            controllerRight.GetComponent<FireManager_R>().enabled = false;
+            L_Hand.SetActive(false);
+            R_Hand.SetActive(false);
+
+            barUI.SetActive(false);
+            gameStatusCanvas.SetActive(true);
+            status.text = "Congratulations";
+            status.fontSize = 50;
+            tryAgainButton.SetActive(false);
+            return;
+        }
 
         if (timer < param.LV_showTextTime)
         {
@@ -180,25 +199,7 @@ public class LVM_LV3 : MonoBehaviour {
             shootSphereEnemyN(7.0f);
             shootSphereEnemyN(7.0f);
         }
-        if (Boss.bossHp.value<=0)
-        {
-            boss.SetActive(false);
-            controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = true;
-            controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
-            controllerLeft.GetComponent<VRUIInput>().enabled = true;
-            controllerRight.GetComponent<VRUIInput>().enabled = true;
-            controllerLeft.GetComponent<FireManager_L>().enabled = false;
-            controllerRight.GetComponent<FireManager_R>().enabled = false;
-            L_Hand.SetActive(false);
-            R_Hand.SetActive(false);
-
-            barUI.SetActive(false);
-            gameStatusCanvas.SetActive(true);
-            status.text = "Congratulations";
-            status.fontSize = 50;
-            tryAgainButton.SetActive(false);
-            return;
-        }
+        
     }
 
     /* Move spaceships -------------------------------------------------------------------------------*/
