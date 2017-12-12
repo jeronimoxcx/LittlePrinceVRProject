@@ -45,7 +45,7 @@ public class LVM_LV3 : MonoBehaviour {
     private float timer = 0.0f;
     private int onceFlag = 1;
 
-    private void Start()
+    private void Awake()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
         boss.SetActive(false);
@@ -108,8 +108,8 @@ public class LVM_LV3 : MonoBehaviour {
 
             barUI.SetActive(false);
             gameStatusCanvas.SetActive(true);
-            status.text = "Congratulations";
-            status.fontSize = 50;
+            status.text = "Congrats, You Win!";
+            status.fontSize = 60;
             tryAgainButton.SetActive(false);
             return;
         }

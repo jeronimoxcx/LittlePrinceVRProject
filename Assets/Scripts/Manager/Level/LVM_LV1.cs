@@ -173,21 +173,24 @@ public class LVM_LV1 : MonoBehaviour
         else
         {
             //todo: set parameters or not
-            controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = true;
-            controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
-            controllerLeft.GetComponent<VRUIInput>().enabled = true;
-            controllerRight.GetComponent<VRUIInput>().enabled = true;
-            controllerLeft.GetComponent<FireManager_L>().enabled = false;
-            controllerRight.GetComponent<FireManager_R>().enabled = false;
-            L_Hand.SetActive(false);
-            R_Hand.SetActive(false);
+            if (!Rose.gameover)
+            {
+                controllerLeft.GetComponent<SteamVR_LaserPointer>().enabled = true;
+                controllerRight.GetComponent<SteamVR_LaserPointer>().enabled = true;
+                controllerLeft.GetComponent<VRUIInput>().enabled = true;
+                controllerRight.GetComponent<VRUIInput>().enabled = true;
+                controllerLeft.GetComponent<FireManager_L>().enabled = false;
+                controllerRight.GetComponent<FireManager_R>().enabled = false;
+                L_Hand.SetActive(false);
+                R_Hand.SetActive(false);
 
-            barSlider.SetActive(false);
-            gameStatusCanvas.SetActive(true);
-            status.text = "Proceed to Next Level";
-            status.fontSize = 50;
-            tryAgainButton.SetActive(false);
-            return;
+                barSlider.SetActive(false);
+                gameStatusCanvas.SetActive(true);
+                status.text = "Proceed to Next Level";
+                status.fontSize = 50;
+                tryAgainButton.SetActive(false);
+                return;
+            }
         }
 
     }

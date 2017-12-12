@@ -28,14 +28,37 @@ public class restartGame : MonoBehaviour {
 
     }
 
-    public void LoadScene()
+    public void LoadScene(int level)
     {
-        LevelManager.GetComponent<LVM_LV1>().enabled = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("lol");
-        comboSlider.currentGage = 0;
-        Rose.gameover = false;
-        LevelManager.GetComponent<LVM_LV1>().enabled = true;
+        switch (level)
+        {
+            case 1:
+                LevelManager.GetComponent<LVM_LV1>().enabled = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Debug.Log("lol");
+                comboSlider.currentGage = 0;
+                Rose.gameover = false;
+                LevelManager.GetComponent<LVM_LV1>().enabled = true;
+                return;
+            case 2:
+                LevelManager.GetComponent<LVM_LV2>().enabled = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Debug.Log("lol");
+                comboSlider.currentGage = 0;
+                Rose.gameover = false;
+                LevelManager.GetComponent<LVM_LV2>().enabled = true;
+                return;
+            case 3:
+                LevelManager.GetComponent<LVM_LV3>().enabled = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Debug.Log("lol");
+                comboSlider.currentGage = 0;
+                Rose.gameover = false;
+                LevelManager.GetComponent<LVM_LV3>().enabled = true;
+                return;
+
+        }
+        
 
     }
 
