@@ -251,6 +251,7 @@
     <Compile Include="Assets\MarkLight\Source\Plugins\Views\ViewAnimation.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\ViewTypeData.cs" />
     <Compile Include="Assets\MarkLight\Source\Plugins\VirtualizedItems.cs" />
+    <Compile Include="Assets\OpeningScene\OpeningScene.cs" />
     <Compile Include="Assets\OutlineEffect\Demo\MaterialSwitcher.cs" />
     <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
     <Compile Include="Assets\OutlineEffect\Demo\Rotate.cs" />
@@ -258,9 +259,11 @@
     <Compile Include="Assets\OutlineEffect\LinkedSet.cs" />
     <Compile Include="Assets\OutlineEffect\Outline.cs" />
     <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
+    <Compile Include="Assets\restartGame.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss.cs" />
     <Compile Include="Assets\Scripts\Enemy\Item_ReceiveForce.cs" />
     <Compile Include="Assets\Scripts\Enemy\ReceiveForce.cs" />
+    <Compile Include="Assets\Scripts\Enemy\sphereEnemy.cs" />
     <Compile Include="Assets\Scripts\Manager\Collect.cs" />
     <Compile Include="Assets\Scripts\Manager\Enemy\EnemyGenerator.cs" />
     <Compile Include="Assets\Scripts\Manager\Enemy\EnemyPool.cs" />
@@ -292,6 +295,7 @@
     <Compile Include="Assets\Scripts\Weapons\ApplyMagneticForce.cs" />
     <Compile Include="Assets\Scripts\Weapons\BarMagnet.cs" />
     <Compile Include="Assets\Scripts\Weapons\M_field.cs" />
+    <Compile Include="Assets\startOptions2.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />

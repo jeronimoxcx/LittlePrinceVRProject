@@ -11,9 +11,6 @@ public class Item_ReceiveForce : MonoBehaviour {
     private bool isPulledToRose;
 
     private float pulledRoseSpeed;
-    private Transform objectStuckTo;
-    private Vector3 impactPosOffset;
-    private Vector3 impactRotOffset;
     private bool isStuck;
     private bool inGage;
 
@@ -24,11 +21,14 @@ public class Item_ReceiveForce : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody>();
 
         isPulledToRose = true;
-        pulledRoseSpeed = param.RS_PullToRoseSpeed;
+        pulledRoseSpeed = 7.5f;
         isStuck = false;
+        numOfMono = 0;
+        monoList = new ArrayList();
 
         inGage = false;
         //barGageSlider = GameObject.Find("BarGageSlider").GetComponent<Slider>();
+
     }
 
     void Update()
@@ -48,24 +48,50 @@ public class Item_ReceiveForce : MonoBehaviour {
 
     /* -----------------------------------------------------------------------------------------------------------------------------------------*/
     /* [Magnetid Force- Monopole, magnetic bar] */
+
+    int numOfMono = 0;
+    ArrayList monoList; 
+
     public void Follow(float[] parameters)
+    {
+        if(parameters[4] == param.barMagnetIndex)
+        {
+            receiveForce(parameters);
+        }
+        else
+        {
+            if (!monoList.Contains(parameters[5]))
+            {
+                    numOfMono++;
+                    monoList.Add(parameters[5]);
+                    //Debug.Log("numOfMono:" + numOfMono);
+                }
+                if(numOfMono>3){
+                    receiveForce(parameters);
+                }
+            }
+    }
+
+    private void receiveForce(float[] parameters)
     {
         isPulledToRose = false;
         Vector3 target = new Vector3(parameters[0], parameters[1], parameters[2]);
         Vector3 r = target - gameObject.transform.position;
 
-        //todo: 건선쓰 일단 하나면 끌려간다고 생각하고 여기다가 해줄랭...?
-        if (!inGage && parameters[4] > 0)
+        if (!inGage && parameters[4] == 1)
         {
-            if (comboSlider.currentGage < 10)
+            Debug.Log("maxGage " + comboSlider.maxGage);
+            if (comboSlider.currentGage < comboSlider.maxGage)
             {
+
                 comboSlider.currentGage++;
                 inGage = true;
+                Debug.Log("currentGage " + comboSlider.currentGage);
             }
         }
         else
         {
-            Debug.Log("I'm not counting");
+            //Debug.Log("I'm not counting");
         }
 
         //Coulomb force
@@ -78,8 +104,10 @@ public class Item_ReceiveForce : MonoBehaviour {
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
-        isStuck = true;
+    {   
+
+        if(numOfMono>3) 
+            isStuck = true;
     }
 
     public void StuckToPW(float[] parameters)
@@ -99,18 +127,5 @@ public class Item_ReceiveForce : MonoBehaviour {
 
         rb.AddForce(param.MF_CFawayC * param.MF_ChargeEnemy * parameters[3] * r / Mathf.Pow(r.magnitude, 3));
     }
-
-    /* -----------------------------------------------------------------------------------------------------------------------------------------*/
-    /* For the flat magnetic field */
-    void Slowdown()
-    {
-        pulledRoseSpeed = pulledRoseSpeed * param.PW_FieldSlownFactor;
-    }
-
-    void Fastenup()
-    {
-        pulledRoseSpeed = pulledRoseSpeed * param.PW_FieldFastenFactor;
-    }
-
 
 }

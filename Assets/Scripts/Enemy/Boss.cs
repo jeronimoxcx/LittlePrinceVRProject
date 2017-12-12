@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Boss : MonoBehaviour {
@@ -7,7 +8,9 @@ public class Boss : MonoBehaviour {
     Param param;
     private Vector3 rosePose;
     private Vector3 bossInitialPose;
-    private Vector3 pathPerOnce; 
+    private Vector3 pathPerOnce;
+
+    public GameObject particleEffect;
 
     private bool isWorking = false;
 
@@ -22,43 +25,69 @@ public class Boss : MonoBehaviour {
     private const int MODE_BLUE = 2;
     private const int MODE_PURPLE = 3;
 
+    public GameObject BarSlider;
+    public static Slider bossHp;
+    public int damageLevel = 50;
+
+    public bool bossDefeated = false;
+
+
     private int curMODE;
 
     void Start()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
         rosePose = GameObject.Find("Rose").transform.position;
+        bossHp = GameObject.Find("BossHpSlider").GetComponent<Slider>();
         bossInitialPose = gameObject.transform.position;
         pathPerOnce = (rosePose - bossInitialPose)/param.LV3_teleportTotNum;
         haloRed = transform.Find("Halo_Red").gameObject;
         haloBlue = transform.Find("Halo_Blue").gameObject;
         haloPurple = transform.Find("Halo_Purple").gameObject;
-
+        
         SetMode();
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Instantiate(particleEffect, collision.contacts[0].point, Quaternion.identity);
+
         if (curMODE == MODE_RED)
         {
             if (collision.collider.tag == "S")
+            {
+                bossHp.value -= damageLevel;
                 Debug.Log("Hit boss in MODE_RED! It should be damaged");
+                Debug.Log("this damaged the boss by " + damageLevel);
+            }
             if (collision.collider.tag == "N")
                 oneStepBack();
 
         } else if (curMODE == MODE_BLUE)
         {
             if (collision.collider.tag == "N")
+            {
+                bossHp.value -= damageLevel;
                 Debug.Log("Hit boss in MODE_BLUE! It should be damaged");
+                Debug.Log("this damaged the boss by " + damageLevel);
+            }
             if (collision.collider.tag == "S")
                 oneStepBack();
 
         } else if (curMODE == MODE_PURPLE)
         {
             Debug.Log("Hit boss in MODE_PURPLE! It should be damaged");
+            bossHp.value -= damageLevel;
         } else
-            Debug.Log("No mode in boss");       
+            Debug.Log("No mode in boss");
+        if (bossHp.value <= 0)
+        {
+            bossDefeated = true; //use this parameter for defeated animation
+            BarSlider.SetActive(false);
+
+        }
+        collision.collider.gameObject.SetActive(false);
     }
 
     void Update () {
@@ -94,8 +123,10 @@ public class Boss : MonoBehaviour {
     }
 
     public void oneStepBack()
-    {
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - pathPerOnce.z);
+    {   
+        Vector3 newPose = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - pathPerOnce.z);
+        if (newPose.z < bossInitialPose.z)
+            gameObject.transform.position = newPose;
         gameObject.transform.LookAt(rosePose);
     }
 

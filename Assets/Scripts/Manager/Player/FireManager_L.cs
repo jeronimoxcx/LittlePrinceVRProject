@@ -41,7 +41,7 @@ public class FireManager_L : MonoBehaviour
     void Update()
     {
         signal = controller.GetPress(gripButton);
-        signal_R = controllerRight.GetComponent<FireManager_R>().signal;
+        //signal_R = controllerRight.GetComponent<FireManager_R>().signal;
         if (controller == null)
         {
             Debug.Log("Controller not initialized");

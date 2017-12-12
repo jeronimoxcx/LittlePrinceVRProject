@@ -9,5 +9,6 @@ public class LevelSwitch : MonoBehaviour {
     public void LoadScene(int level)
     {
         Application.LoadLevel(level);
+        comboSlider.currentGage = 0;
     }
 }
