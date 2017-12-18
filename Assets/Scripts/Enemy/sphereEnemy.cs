@@ -39,7 +39,7 @@ public class sphereEnemy : MonoBehaviour {
         Vector3 curDir = gameObject.GetComponent<Rigidbody>().velocity.normalized;
         Vector3 towardDir = (rose - gameObject.transform.position).normalized;
         Vector3 updatedDir = Vector3.Lerp(curDir, towardDir, param.RS_EnemyApprachAngle).normalized;
-        gameObject.GetComponent<Rigidbody>().velocity = pulledRoseSpeed * 0.5f * (curDir + updatedDir);
+        gameObject.GetComponent<Rigidbody>().velocity = pulledRoseSpeed * 0.75f* towardDir;
     }
 
 

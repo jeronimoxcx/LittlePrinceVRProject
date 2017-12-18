@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Param : MonoBehaviour {
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    //void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
     /* Control Level 
      * Lv 1
