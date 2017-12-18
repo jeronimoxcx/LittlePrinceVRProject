@@ -27,14 +27,14 @@ public class Boss : MonoBehaviour {
 
     public GameObject BarSlider;
     public static Slider bossHp;
-    public int damageLevel = 50;
+    public int damageLevel = 5;
 
     public bool bossDefeated = false;
 
 
     private int curMODE;
 
-    void Start()
+    void Awake()
     {
         param = GameObject.Find("Param").GetComponent<Param>();
         rosePose = GameObject.Find("Rose").transform.position;

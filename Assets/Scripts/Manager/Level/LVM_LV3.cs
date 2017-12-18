@@ -139,6 +139,19 @@ public class LVM_LV3 : MonoBehaviour {
             boss.SetActive(true);
             barUI.SetActive(true);
         }
+        else if (timer < param.LV_showTextTime + spaceShipAppearTime + 8)
+        {
+            levelScroll.SetActive(false);
+
+            timer += Time.deltaTime;
+
+            shootBasicEnemyN(2.0f);
+            shootBasicEnemyS(2.0f);
+            shootItemEnemyN(3.0f);
+            shootItemEnemyS(3.0f);
+            //shootSphereEnemyN(7.0f);
+            //shootSphereEnemyS(7.0f);
+        }
 
         else if (timer < param.LV_showTextTime + spaceShipAppearTime+60)
         {
@@ -155,7 +168,6 @@ public class LVM_LV3 : MonoBehaviour {
 
             MoveSpaceShipRed(3.0f, 10);
             MoveSpaceShipBlue(3.0f, 10);
-
             if (spaceshipRed.transform.position.x < -50 || spaceshipRed.transform.position.x > 50)
                 spaceshipRed.GetComponent<Rigidbody>().velocity = new Vector3(-spaceshipRed.GetComponent<Rigidbody>().velocity.x, spaceshipRed.GetComponent<Rigidbody>().velocity.y, 0);
             if (spaceshipRed.transform.position.y < -10 || spaceshipRed.transform.position.y > 50)
@@ -165,13 +177,14 @@ public class LVM_LV3 : MonoBehaviour {
             if (spaceshipBlue.transform.position.y < -10 || spaceshipBlue.transform.position.y > 50)
                 spaceshipBlue.GetComponent<Rigidbody>().velocity = new Vector3(spaceshipBlue.GetComponent<Rigidbody>().velocity.x, -spaceshipBlue.GetComponent<Rigidbody>().velocity.y, 0);
 
+
             //Enemy N
             if (timerForLimitN < 0.8f + Random.Range(-0.1f, 0.1f))
             {
                 shootBasicEnemyN(0.1f);
                 timerForLimitN += Time.deltaTime;
             }
-            else if (timerForLimitN < 7.0f + Random.Range(-2.0f, 2.0f))
+            else if (timerForLimitN < 10.0f + Random.Range(-5.0f, 5.0f))
             {
                 timerForLimitN += Time.deltaTime;
             }
@@ -186,7 +199,7 @@ public class LVM_LV3 : MonoBehaviour {
                 shootBasicEnemyS(0.1f);
                 timerForLimitS += Time.deltaTime;
             }
-            else if (timerForLimitS < 5.0f + Random.Range(-2.0f, 2.0f))
+            else if (timerForLimitS < 10.0f + Random.Range(-5.0f, 5.0f))
             {
                 timerForLimitS += Time.deltaTime;
             }
@@ -194,10 +207,11 @@ public class LVM_LV3 : MonoBehaviour {
             {
                 timerForLimitS = 0;
             }
-            shootItemEnemyN(5.0f);
-            shootItemEnemyS(5.0f);
-            shootSphereEnemyN(7.0f);
-            shootSphereEnemyN(7.0f);
+
+            shootItemEnemyN(7.0f);
+            shootItemEnemyS(7.0f);
+            shootSphereEnemyN(8.0f);
+            shootSphereEnemyS(8.0f);
         }
         
     }

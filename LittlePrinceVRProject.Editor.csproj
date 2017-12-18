@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ImportedAssets\Spaceship\readme.txt" />
+    <None Include="Assets\ImportedAssets\VertexColorFarmAnimals\Shaders\VertexColorUnlit.shader" />
     <None Include="Assets\MarkLight\ChangeLog.txt" />
     <None Include="Assets\MarkLight\Examples\Views\UI\Basic\ButtonsExample.xml" />
     <None Include="Assets\MarkLight\Examples\Views\UI\Basic\ComboBoxExample.xml" />

@@ -29,13 +29,13 @@ public class EnemyGenerator : MonoBehaviour
     public void shootItemEnemy()
     {
         GameObject temp = pool.GetItemObject();
-        initializeStateParabolic(temp);
+        initializeState(temp);
     }
 
     public void shootSphereEnemy()
     {
         GameObject temp = pool.GetSphereEnemy();
-        initializeStateParabolic(temp);
+        initializeState(temp);
     }
 
     private GameObject initializeState(GameObject enemy)
